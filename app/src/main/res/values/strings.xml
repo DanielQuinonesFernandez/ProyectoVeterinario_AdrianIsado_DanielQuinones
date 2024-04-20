@@ -1,0 +1,91 @@
+<resources>
+    <string name="app_name">Animalia - Tu Veterinario</string>
+
+    <!-- Botones de menú -->
+    <string name="nav_header_title">Animalia</string>
+    <string name="nav_header_subtitle">animalia@animalia.es</string>
+    <string name="btn_menu_miPerfil">Mi perfil</string>
+    <string name="btn_menu_pedirCita">Pedir cita</string>
+    <string name="btn_menu_mensajes">Mensajes</string>
+    <string name="btn_menu_registrarMascota">Registrar mascota</string>
+    <string name="btn_menu_historialMascotas">Historial de mis citas</string>
+    <string name="btn_menu_FAQ">FAQ</string>
+    <string name="action_settings">Ajustes</string>
+    <string name="iniciar_sesion">Iniciar Sesión</string>
+    <string name="registrarse">Registrarse</string>
+    <string name="has_olvidado_tu_contrasena">¿Has olvidado tu contraseña?</string>
+    <string name="nombre">Nombre</string>
+    <string name="escribe_tu_nombre">Escribe tu nombre</string>
+    <string name="apellidos">Apellidos</string>
+    <string name="escribe_tu_apellido">Escribe tu apellido</string>
+    <string name="escribe_tu_correo">Escribe tu correo</string>
+    <string name="correo">Correo electrónico</string>
+    <string name="contrasena">Contraseña</string>
+    <string name="escribe_tu_contrasena">Escribe tu contraseña</string>
+    <string name="repite_contrasena">Repite tu contraseña</string>
+    <string name="registra_tu_mascota">REGISTRA TU MASCOTA</string>
+    <string name="especie_mascota">Especie de tu mascota</string>
+    <string name="escribe_la_especie">Escribe la especie de tu mascota</string>
+    <string name="fechaNacimiento_mascota">Fecha de nacimiento</string>
+    <string name="escribe_la_fechaNac_mascota">dd/mm/aaaa</string>
+    <string name="cargar_imagen">Subir foto de mi mascota</string>
+    <string name="registrar_mascota">Registrar mascota</string>
+    <string name="limpiar_campos">Limpiar campos</string>
+    <string name="pide_tu_cita">Pide tu cita</string>
+    <string name="selec_tu_mascota">Selecciona tu mascota</string>
+    <string name="selec_tipo_cita">Tipo de cita</string>
+    <string name="selec_fechaHora_cita">Fecha y hora</string>
+    <string name="pedir_cita">Pedir cita</string>
+    <string name="numero_telefono">Teléfono</string>
+    <string name="escribe_tu_numTlf">Escribe tu número de teléfono</string>
+    <string name="historial_medico">Historial médico</string>
+    <string name="escribe_tu_nombre_de_mascota">Escribe el nombre de tu mascota</string>
+    <string name="otros_datos">Otros datos</string>
+    <string name="fecha_por_defecto">01/01/1900</string>
+    <string name="btn_menu_cerrarSesion">Cerrar sesión</string>
+    <string name="mascotas">Sobre mis mascotas</string>
+    <string name="sobre_mi">Sobre mi</string>
+    <string name="escribe_aqui_el_tipo_de_cita">Escribe aqui el tipo de cita</string>
+    <string name="escribe_otros_datos_relevantes_sobre_la_cita">Escribe otros datos relevantes sobre la cita</string>
+    <string name="mascotas_dosPuntos">Mascotas:</string>
+    <string name="contrasena_actual">Contraseña actual:</string>
+    <string name="contrasena_nueva">Contraseña nueva:</string>
+    <string name="cambiar_contrasena">Cambiar contraseña</string>
+
+    <string-array name="tipos_de_cita">
+        <item>Consulta general - 50.00€</item>
+        <item>Vacunación - 30.00€</item>
+        <item>Esterilización/Castración - 150.00€</item>
+        <item>Control de peso - 25.00€</item>
+        <item>Chequeo dental - 40.00€</item>
+        <item>Tratamiento contra parásitos - 60.00€</item>
+        <item>Revisión de heridas o suturas - 35.00€</item>
+        <item>Exámenes de laboratorio - 55.00€</item>
+        <item>Cirugía - 150.00€</item>
+        <item>Emergencia - 80.00€</item>
+        <item>Chequeo anual - 40.00€</item>
+        <item>Consejería nutricional - 70.00€</item>
+        <item>Control de enfermedades crónicas - 60.00€</item>
+        <item>Consulta especializada - 75.00€</item>
+        <item>Desparasitación - 25.00€</item>
+        <item>Vacunación de cachorros - 35.00€</item>
+        <item>Tratamiento de enfermedades - 45.00€</item>
+        <item>Revisión de comportamiento - 50.00€</item>
+        <item>Control de medicación - 30.00€</item>
+        <item>Curas o vendajes - 20.00€</item>
+        <item>Consultas para animales exóticos - 100.00€</item>
+        <item>Consejería sobre cuidados - 60.00€</item>
+        <item>Otros - Por favor, consulte con el veterinario</item>
+    </string-array>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="como_pedir_una_cita">Como pedir una cita</string>
+    <string name="help_selec_mascota_pedirCita">Pedir una cita es muy sencillo. Primero tendrás que elegir una de tus mascotas registradas:</string>
+    <string name="help_select_tipo_cita_pedirCita">Después de haber seleccionado tu mascota, tendrás que seleccionar el tipo de cita que quieres elegir. A la derecha de cada cita encontrarás el precio de la misma:</string>
+    <string name="help_otra_cita_pedirCita">Si ningún tipo de cita se corresponde con lo que querías, podrás elegir la última elección y escribirle al veterinario lo que quieres específicamente:</string>
+    <string name="help_selec_fecha_hora_pedirCita">Cuando tengas tu cita seleccionada podrás elegir una fecha y hora para la misma:</string>
+    <string name="help_otros_datos_pedirCita">Lo básico ya está seleccionado, ahora puedes añadir datos adicionales para el veterinario:</string>
+    <string name="ahora_solo_queda_pedir_la_cita">¡Ahora solo queda pedir la cita!</string>
+    <string name="volver">VOLVER</string>
+
+</resources>

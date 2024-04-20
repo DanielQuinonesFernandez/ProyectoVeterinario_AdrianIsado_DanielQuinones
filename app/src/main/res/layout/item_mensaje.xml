@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:padding="10dp">
+
+    <TextView
+        android:id="@+id/tvTituloMensaje"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:textColor="@color/black"
+        android:textSize="20sp"
+        android:fontFamily="@font/poppins_bold"
+        android:text="Título del mensaje"/>
+
+    <ImageButton
+        android:id="@+id/btnBorrarMensaje"
+        android:layout_width="32dp"
+        android:layout_height="32dp"
+        android:src="@drawable/baseline_delete_32"
+        android:layout_alignParentEnd="true"/>
+
+    <TextView
+        android:id="@+id/tvTipoMensaje"
+        android:layout_width="match_parent"
+        android:textAlignment="center"
+        android:background="#ABD6EA"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/tvTituloMensaje"
+        android:textColor="@color/black"
+        android:textSize="13sp"
+        android:fontFamily="@font/poppins_semibold"
+        android:layout_marginBottom="10dp"
+        android:text="Cambio de cita" />
+
+    <TextView
+        android:id="@+id/tvContenidoMensaje"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/tvTipoMensaje"
+        android:textColor="@color/black"
+        android:textSize="15sp"
+        android:fontFamily="@font/poppins"
+        android:text="Contenido de prueba del mensaje"/>
+
+</RelativeLayout>

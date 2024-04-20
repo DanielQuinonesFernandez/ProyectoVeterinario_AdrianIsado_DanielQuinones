@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".actividades.inicioSesionRegistro.IniciarSesion_Registrarse_Activity"
+    android:orientation="vertical"
+    android:padding="15dp"
+    android:gravity="center">
+
+    <!-- Imagen logo -->
+    <ImageView
+        android:layout_width="263dp"
+        android:layout_height="246dp"
+        android:layout_gravity="center"
+        android:src="@drawable/logovet" />
+
+    <!-- Boton Iniciar Sesion -->
+    <Button
+        android:id="@+id/btnIniciarSesion"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:background="@drawable/btn_border"
+        android:backgroundTint="@color/white"
+        android:fontFamily="@font/poppins_bold"
+        android:text="@string/iniciar_sesion"
+        android:textColor="#2E038F"
+        android:textSize="20sp"
+        android:textStyle="bold" />
+
+    <!-- Separador -->
+    <View
+        android:layout_marginTop="30dp"
+        android:layout_marginBottom="20dp"
+        android:layout_marginStart="20dp"
+        android:layout_marginEnd="20dp"
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:background="@android:color/darker_gray" />
+
+    <!-- Boton Registrarse -->
+    <Button
+        android:id="@+id/btnRegistrarse"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:fontFamily="@font/poppins_bold"
+        android:padding="10dp"
+        android:text="@string/registrarse"
+        android:textSize="20sp"
+        android:textStyle="bold" />
+
+</LinearLayout>
