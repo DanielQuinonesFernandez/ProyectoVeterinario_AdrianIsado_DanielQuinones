@@ -1,15 +1,12 @@
 package com.example.proyectoveterinario_adrianisado_danielquinones;
 
 import android.annotation.SuppressLint;
-import android.app.Dialog;
+import android.content.Intent;
 import android.graphics.drawable.Drawable;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
-import android.view.ViewGroup;
-import android.widget.ListView;
-import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.drawerlayout.widget.DrawerLayout;
@@ -18,18 +15,13 @@ import androidx.navigation.Navigation;
 import androidx.navigation.ui.AppBarConfiguration;
 import androidx.navigation.ui.NavigationUI;
 
-import com.example.proyectoveterinario_adrianisado_danielquinones.adaptadores.AdaptadorMensajes;
+import com.example.proyectoveterinario_adrianisado_danielquinones.actividades.ayudas.AyudaMensajes;
+import com.example.proyectoveterinario_adrianisado_danielquinones.actividades.ayudas.AyudaMiPerfil;
+import com.example.proyectoveterinario_adrianisado_danielquinones.actividades.ayudas.AyudaPedirCita;
 import com.example.proyectoveterinario_adrianisado_danielquinones.databinding.ActivityMainBinding;
-import com.example.proyectoveterinario_adrianisado_danielquinones.objetos.Mensaje;
 import com.example.proyectoveterinario_adrianisado_danielquinones.objetos.Usuario;
 import com.google.android.material.navigation.NavigationView;
 
-import java.sql.Connection;
-import java.sql.PreparedStatement;
-import java.sql.ResultSet;
-import java.sql.SQLException;
-import java.util.ArrayList;
-import java.util.Date;
 import java.util.Objects;
 
 public class MainActivity extends AppCompatActivity {
@@ -90,13 +82,41 @@ public class MainActivity extends AppCompatActivity {
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
 
+        int fragmentActualId = Objects.requireNonNull(Navigation.findNavController(this, R.id.nav_host_fragment_content_main).getCurrentDestination()).getId();
+
         if (item.getItemId() == R.id.menu_bar_mensajes) {
             Navigation.findNavController(this, R.id.nav_host_fragment_content_main).navigate(R.id.nav_mensajes);
             return true;
         } else if (item.getItemId() == R.id.menu_bar_perfil) {
             Navigation.findNavController(this, R.id.nav_host_fragment_content_main).navigate(R.id.nav_miPerfil);
             return true;
+        } else if (item.getItemId() == R.id.menu_bar_ayuda){
+            abrirAyudaEnFuncionDelFragmentoAbierto(fragmentActualId);
         }
         return super.onOptionsItemSelected(item);
+    }
+
+    private void abrirAyudaEnFuncionDelFragmentoAbierto(int fragmentActualId){
+        if(fragmentActualId == R.id.nav_miPerfil){
+            Intent i = new Intent(this, AyudaMiPerfil.class);
+            startActivity(i);
+        }
+        else if(fragmentActualId == R.id.nav_pedirCita){
+            Intent i = new Intent(this, AyudaPedirCita.class);
+            startActivity(i);
+        }
+        else if(fragmentActualId == R.id.nav_mensajes){
+            Intent i = new Intent(this, AyudaMensajes.class);
+            startActivity(i);
+        }
+        else if(fragmentActualId == R.id.nav_registrarMascota){
+
+        }
+        else if(fragmentActualId == R.id.nav_historialMascotas){
+
+        }
+        else if(fragmentActualId == R.id.nav_FAQ){
+
+        }
     }
 }

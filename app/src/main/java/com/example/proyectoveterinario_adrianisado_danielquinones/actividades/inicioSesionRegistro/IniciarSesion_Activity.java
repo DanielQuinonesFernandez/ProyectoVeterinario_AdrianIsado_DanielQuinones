@@ -3,8 +3,11 @@ package com.example.proyectoveterinario_adrianisado_danielquinones.actividades.i
 import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
+import android.os.Handler;
+import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.LinearLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -15,16 +18,24 @@ import com.example.proyectoveterinario_adrianisado_danielquinones.MySQLConnectio
 import com.example.proyectoveterinario_adrianisado_danielquinones.R;
 import com.example.proyectoveterinario_adrianisado_danielquinones.SeguridadContrasena;
 import com.example.proyectoveterinario_adrianisado_danielquinones.objetos.Usuario;
+import com.google.android.material.progressindicator.CircularProgressIndicator;
+import com.google.firebase.FirebaseApp;
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.Objects;
+import java.util.Random;
 
 public class IniciarSesion_Activity extends AppCompatActivity {
 
     private Context context;
     private EditText etCorreo, etContrasenia;
+    private CircularProgressIndicator circularProgressIndicator;
+    private LinearLayout layoutIniciarSesion;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -33,6 +44,8 @@ public class IniciarSesion_Activity extends AppCompatActivity {
 
         context = this;
 
+        layoutIniciarSesion = findViewById(R.id.layoutIniciarSesion);
+        circularProgressIndicator = findViewById(R.id.circularProgressIndicator);
         etCorreo = findViewById(R.id.etCorreoElectronico);
         etContrasenia = findViewById(R.id.etContrasena);
         Button btnIniciarSesion = findViewById(R.id.btnIniciarSesion);
@@ -70,6 +83,16 @@ public class IniciarSesion_Activity extends AppCompatActivity {
                 if (resultSet.next()) {
                     // El usuario existe en la base de datos
 
+                    // Mostrar el CircularProgressIndicator y ocular los demás elementos
+                    circularProgressIndicator.setVisibility(View.VISIBLE);
+                    for (int i = 0; i < layoutIniciarSesion.getChildCount(); i++) {
+                        View child = layoutIniciarSesion.getChildAt(i);
+                        if (!(child instanceof CircularProgressIndicator)) {
+                            child.setVisibility(View.GONE);
+                        }
+                    }
+
+
                     // Obtener los datos del usuario
                     int idUsuario = resultSet.getInt("IdUsuario");
                     String nombre = resultSet.getString("NombreUsuario");
@@ -80,11 +103,16 @@ public class IniciarSesion_Activity extends AppCompatActivity {
 
                     Usuario usuarioIniciado = new Usuario(idUsuario, nombre, apellidos, correoElectronico, contraseniaUsuario, numTelefono);
 
-                    // Redirigir al usuario a la pantalla principal
-                    Intent intent = new Intent(context, MainActivity.class);
-                    intent.putExtra("usuarioIniciado", usuarioIniciado);
-                    startActivity(intent);
-                    finish(); // Cerrar la actividad actual
+                    // Redirigir al usuario a la pantalla principal después de 5 segundos
+                    new Handler().postDelayed(new Runnable() {
+                        @Override
+                        public void run() {
+                            Intent intent = new Intent(context, MainActivity.class);
+                            intent.putExtra("usuarioIniciado", usuarioIniciado);
+                            startActivity(intent);
+                            finish(); // Cerrar la actividad actual
+                        }
+                    }, 1500);
 
                 } else {
                     // El usuario no existe en la base de datos o las credenciales son incorrectas
@@ -103,6 +131,7 @@ public class IniciarSesion_Activity extends AppCompatActivity {
             Toast.makeText(context, "Error al conectar con la base de datos", Toast.LENGTH_SHORT).show();
         }
     }
+
 
     private void limpiarCampos() {
         etCorreo.setText("");

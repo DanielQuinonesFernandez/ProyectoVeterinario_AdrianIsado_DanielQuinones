@@ -49,11 +49,7 @@ public class AdaptadorHistorialMedico extends BaseAdapter {
         TextView tvDescripcionCita = view.findViewById(R.id.tvDescripcionCita);
         TextView tvPrecioCita = view.findViewById(R.id.tvPrecioCita);
 
-        // Formatear la fecha
-        @SuppressLint("SimpleDateFormat") SimpleDateFormat dateFormat = new SimpleDateFormat("dd/MM/yyyy");
-        String fechaFormateada = dateFormat.format(historialesMedicos.get(i).getFechaCita());
-
-        tvFechaCita.setText(fechaFormateada);
+        tvFechaCita.setText(historialesMedicos.get(i).getFechaCita());
         String[] partesTitulo = historialesMedicos.get(i).getTituloCita().split("-");
         tvTituloCita.setText(partesTitulo[0]);
         tvDescripcionCita.setText(historialesMedicos.get(i).getDescripcionCita());

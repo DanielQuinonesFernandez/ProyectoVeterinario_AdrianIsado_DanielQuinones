@@ -163,6 +163,7 @@ public class Registrarse_Activity extends AppCompatActivity {
         }
     }
 
+
     private boolean correoExiste(@NonNull Connection connection, String correoElectronico) throws SQLException {
         String query = "SELECT COUNT(*) FROM Usuarios WHERE CorreoElectronico = ?";
         PreparedStatement statement = connection.prepareStatement(query);

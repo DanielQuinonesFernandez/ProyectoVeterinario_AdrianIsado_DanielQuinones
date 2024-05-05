@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<ScrollView
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
@@ -8,16 +7,17 @@
     android:padding="15dp"
     android:scrollbarStyle="outsideOverlay">
 
-    <LinearLayout android:id="@+id/main"
+    <LinearLayout
+        android:id="@+id/main"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        tools:context=".actividades.ayudas.AyudaPedirCita"
+        tools:context=".actividades.ayudas.AyudaMensajes"
         android:orientation="vertical">
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="@string/como_pedir_una_cita"
+            android:text="@string/help_titulo_mensajes"
             android:textSize="30sp"
             android:textColor="@color/black"
             android:textStyle="bold"
@@ -29,11 +29,11 @@
             android:layout_marginTop="10dp"
             android:layout_marginBottom="10dp"/>
 
-        <!-- SELECCION DE LA MASCOTA -->
+        <!-- MENSAJE ENTERO -->
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="@string/help_selec_mascota_pedirCita"
+            android:text="@string/help_mensajes_mensajes"
             android:textColor="@color/black"
             android:fontFamily="@font/poppins"
             android:textSize="16sp"
@@ -42,17 +42,17 @@
         <com.google.android.material.imageview.ShapeableImageView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:src="@drawable/seleccionmascota"
+            android:src="@drawable/mensajeentero"
             android:layout_gravity="center"
             app:strokeColor="@color/black"
             app:strokeWidth="2dp"
             android:layout_marginBottom="30dp"/>
 
-        <!-- SELECCION DEL TIPO DE CITA -->
+        <!-- ICONO DEL MENSAJE DE LA BARRA DE ARRIBA -->
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="@string/help_select_tipo_cita_pedirCita"
+            android:text="@string/help_icono_arriba_mensajes"
             android:textColor="@color/black"
             android:fontFamily="@font/poppins"
             android:textSize="16sp"
@@ -61,17 +61,17 @@
         <com.google.android.material.imageview.ShapeableImageView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:src="@drawable/tipodecita"
+            android:src="@drawable/iconomensaje"
             android:layout_gravity="center"
             app:strokeColor="@color/black"
             app:strokeWidth="2dp"
             android:layout_marginBottom="30dp"/>
 
-        <!-- SELECCION DE OTRO TIPO DE CITA -->
+        <!-- ICONO DEL MENSAJE DE LA BARRA LATERAL -->
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="@string/help_otra_cita_pedirCita"
+            android:text="@string/help_icono_barra_lateral_mensajes"
             android:textColor="@color/black"
             android:fontFamily="@font/poppins"
             android:textSize="16sp"
@@ -80,17 +80,17 @@
         <com.google.android.material.imageview.ShapeableImageView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:src="@drawable/otrotipocita"
+            android:src="@drawable/iconomensajebarralateral"
             android:layout_gravity="center"
             app:strokeColor="@color/black"
             app:strokeWidth="2dp"
             android:layout_marginBottom="30dp"/>
 
-        <!-- SELECCION DE FECHA Y HORA -->
+        <!-- BORRAR MENSAJE -->
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="@string/help_selec_fecha_hora_pedirCita"
+            android:text="@string/help_borrar_mensaje_mensajes"
             android:textColor="@color/black"
             android:fontFamily="@font/poppins"
             android:textSize="16sp"
@@ -99,42 +99,21 @@
         <com.google.android.material.imageview.ShapeableImageView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:src="@drawable/fechahora"
+            android:src="@drawable/borrarmensaje"
             android:layout_gravity="center"
             app:strokeColor="@color/black"
             app:strokeWidth="2dp"
-            android:layout_marginBottom="30dp"/>
-
-        <!-- OTROS DATOS DE LA CITA -->
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="@string/help_otros_datos_pedirCita"
-            android:textColor="@color/black"
-            android:fontFamily="@font/poppins"
-            android:textSize="16sp"
-            android:layout_marginBottom="10dp"/>
-
-        <com.google.android.material.imageview.ShapeableImageView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:src="@drawable/otrosdatos"
-            android:layout_gravity="center"
-            app:strokeColor="@color/black"
-            app:strokeWidth="2dp"
-            android:layout_marginBottom="30dp"/>
-
-        <!-- TEXTO FINAL -->
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="@string/ahora_solo_queda_pedir_la_cita"
-            android:textSize="20sp"
-            android:textAlignment="center"
-            android:textColor="@color/black"
-            android:textStyle="bold"
-            android:fontFamily="@font/poppins_semibold"
             android:layout_marginBottom="20dp"/>
+
+        <!-- POR QUE LLEGAN MENSAJES -->
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/help_porque_llegan_mensajes_mensajes"
+            android:textColor="@color/black"
+            android:fontFamily="@font/poppins"
+            android:textSize="16sp"
+            android:layout_marginBottom="10dp"/>
 
         <!-- BOTÓN VOLVER -->
         <com.google.android.material.divider.MaterialDivider
@@ -144,7 +123,7 @@
             android:layout_marginBottom="10dp"/>
 
         <com.google.android.material.button.MaterialButton
-            android:id="@+id/btnVolverAyudaPedirCita"
+            android:id="@+id/btnVolverAyudaMensajes"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="@string/volver"

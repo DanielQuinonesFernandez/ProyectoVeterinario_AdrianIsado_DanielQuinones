@@ -20,6 +20,12 @@
         android:theme="@style/Theme.ProyectoVeterinario_AdrianIsado_DanielQuinones"
         tools:targetApi="31">
         <activity
+            android:name=".actividades.ayudas.AyudaMensajes"
+            android:exported="false" />
+        <activity
+            android:name=".actividades.ayudas.AyudaMiPerfil"
+            android:exported="false" />
+        <activity
             android:name=".actividades.ayudas.AyudaPedirCita"
             android:exported="false" />
         <activity
@@ -29,10 +35,13 @@
             android:name=".actividades.inicioSesionRegistro.IniciarSesion_Activity"
             android:exported="false" />
         <activity
+            android:name=".actividades.inicioSesionRegistro.IniciarSesion_Registrarse_Activity"
+            android:exported="false" />
+        <activity
             android:name=".MainActivity"
             android:exported="false" />
         <activity
-            android:name=".actividades.inicioSesionRegistro.IniciarSesion_Registrarse_Activity"
+            android:name=".SplashScreen"
             android:enableOnBackInvokedCallback="true"
             android:exported="true"
             android:theme="@style/Theme.ProyectoVeterinario_AdrianIsado_DanielQuinones.NoActionBar"

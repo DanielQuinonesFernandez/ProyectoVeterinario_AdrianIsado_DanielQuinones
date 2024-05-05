@@ -6,13 +6,13 @@ import java.util.Date;
 
 public class HistorialMedico {
     private final int id;
-    private final Date fechaCita;
+    private final String fechaCita;
     private final String descripcionCita;
     private final double precioCita;
     private final String tituloCita;
     private final int idMascota;
 
-    public HistorialMedico(int id, Date fechaCita, String descripcionCita, double precioCita, String tituloCita, int idMascota) {
+    public HistorialMedico(int id, String fechaCita, String descripcionCita, double precioCita, String tituloCita, int idMascota) {
         this.id = id;
         this.fechaCita = fechaCita;
         this.descripcionCita = descripcionCita;
@@ -25,7 +25,7 @@ public class HistorialMedico {
         return id;
     }
 
-    public Date getFechaCita() {
+    public String getFechaCita() {
         return fechaCita;
     }
 

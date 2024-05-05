@@ -1,6 +1,7 @@
 package com.example.proyectoveterinario_adrianisado_danielquinones.fragmentos;
 
 import android.annotation.SuppressLint;
+import android.app.AlertDialog;
 import android.app.DatePickerDialog;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
@@ -19,10 +20,10 @@ import android.widget.ImageButton;
 import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.TimePicker;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
-import androidx.lifecycle.ViewModelProvider;
 
 import com.example.proyectoveterinario_adrianisado_danielquinones.MySQLConnection;
 import com.example.proyectoveterinario_adrianisado_danielquinones.R;
@@ -43,7 +44,7 @@ import java.util.Date;
 public class PedirCitaFragment extends Fragment {
 
     private FragmentPedirCitaBinding binding;
-    private ArrayList<Mascota> mascotasDeEsteUsuario = new ArrayList<>();
+    private final ArrayList<Mascota> mascotasDeEsteUsuario = new ArrayList<>();
     private EditText etDescripcionCita, edOtroTipoCita, etFechaCita;
     private Spinner spinnerSelecMascota, spinnerSelecTipoCita;
     private TimePicker timePicker;
@@ -55,18 +56,18 @@ public class PedirCitaFragment extends Fragment {
         binding = FragmentPedirCitaBinding.inflate(inflater, container, false);
         View root = binding.getRoot();
 
-        tvFechaHoraSeleccionada = (TextView) root.findViewById(R.id.tvFechaSeleccionada);
+        tvFechaHoraSeleccionada = root.findViewById(R.id.tvFechaSeleccionada);
 
         ImageButton btnFechaCita = root.findViewById(R.id.btnFechaCita);
 
-        timePicker = (TimePicker) root.findViewById(R.id.timePickerPedirCita);
+        timePicker = root.findViewById(R.id.timePickerPedirCita);
 
-        edOtroTipoCita = (EditText) root.findViewById(R.id.edOtroTipoCita);
-        etDescripcionCita = (EditText) root.findViewById(R.id.etOtrosDatosRelevantes);
-        etFechaCita = (EditText) root.findViewById(R.id.etFechaCita);
+        edOtroTipoCita = root.findViewById(R.id.edOtroTipoCita);
+        etDescripcionCita = root.findViewById(R.id.etOtrosDatosRelevantes);
+        etFechaCita = root.findViewById(R.id.etFechaCita);
 
         if (android.os.Build.VERSION.SDK_INT >= android.os.Build.VERSION_CODES.O) {
-            DateTimeFormatter dtf = DateTimeFormatter.ofPattern("yyyy-MM-dd");
+            DateTimeFormatter dtf = DateTimeFormatter.ofPattern("dd-MM-yyyy");
             LocalDateTime now = LocalDateTime.now();
             etFechaCita.setText(dtf.format(now));
         } else {
@@ -75,13 +76,13 @@ public class PedirCitaFragment extends Fragment {
 
         rellenarArraylistDesdeBBDD();
 
-        spinnerSelecMascota = (Spinner) root.findViewById(R.id.combobox_seleccionMascota);
+        spinnerSelecMascota = root.findViewById(R.id.combobox_seleccionMascota);
         ArrayAdapter<Mascota> adapterSelecMascota = new ArrayAdapter<>(root.getContext(), android.R.layout.simple_spinner_item, mascotasDeEsteUsuario);
         adapterSelecMascota.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         spinnerSelecMascota.setAdapter(adapterSelecMascota);
 
 
-        spinnerSelecTipoCita = (Spinner) root.findViewById(R.id.combobox_seleccionTipoCita);
+        spinnerSelecTipoCita = root.findViewById(R.id.combobox_seleccionTipoCita);
         ArrayAdapter<CharSequence> adapterSelecTipoCita = ArrayAdapter.createFromResource(root.getContext(),
                 R.array.tipos_de_cita, android.R.layout.simple_spinner_item);
         adapterSelecTipoCita.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
@@ -89,7 +90,7 @@ public class PedirCitaFragment extends Fragment {
 
         btnFechaCita.setOnClickListener(v -> mostrarCalendario());
 
-        Button btnPedirCita = (Button) root.findViewById(R.id.btnPedirCita);
+        Button btnPedirCita = root.findViewById(R.id.btnPedirCita);
 
         btnPedirCita.setOnClickListener(v -> pedirCita());
 
@@ -103,9 +104,10 @@ public class PedirCitaFragment extends Fragment {
             @Override
             public void onTextChanged(CharSequence s, int start, int before, int count) {
                 int hora = timePicker.getHour();
-                int minuto = timePicker.getMinute();
+                //int minuto = timePicker.getMinute();
+                @SuppressLint("DefaultLocale") String minutoStr = String.format("%02d", timePicker.getMinute());
 
-                tvFechaHoraSeleccionada.setText("Fecha seleccionada: " + etFechaCita.getText().toString() + " " + hora + ":" + minuto);
+                tvFechaHoraSeleccionada.setText("Fecha seleccionada: " + etFechaCita.getText().toString() + " " + hora + ":" + minutoStr);
             }
 
             @Override
@@ -119,9 +121,10 @@ public class PedirCitaFragment extends Fragment {
             @Override
             public void onTimeChanged(TimePicker view, int hourOfDay, int minute) {
                 int hora = timePicker.getHour();
-                int minuto = timePicker.getMinute();
+                //int minuto = timePicker.getMinute();
+                @SuppressLint("DefaultLocale") String minutoStr = String.format("%02d", timePicker.getMinute());
 
-                tvFechaHoraSeleccionada.setText("Fecha seleccionada: " + etFechaCita.getText().toString() + " " + hora + ":" + minuto);
+                tvFechaHoraSeleccionada.setText("Fecha seleccionada: " + etFechaCita.getText().toString() + " " + hora + ":" + minutoStr);
             }
         });
 
@@ -181,7 +184,8 @@ public class PedirCitaFragment extends Fragment {
     private void pedirCita() {
         try {
             int hora = timePicker.getHour();
-            int minuto = timePicker.getMinute();
+            //int minuto = timePicker.getMinute();
+            @SuppressLint("DefaultLocale") String minutoStr = String.format("%02d", timePicker.getMinute());
 
             Connection connection = MySQLConnection.getConnection();
 
@@ -194,7 +198,7 @@ public class PedirCitaFragment extends Fragment {
             } else {
                 statement.setString(1, edOtroTipoCita.getText().toString().trim() + " - 0.0€");
             }
-            statement.setString(2, etFechaCita.getText().toString() + " " + hora + ":" + minuto + ":00");
+            statement.setString(2, etFechaCita.getText().toString() + " " + hora + ":" + minutoStr);
             statement.setString(3, "Para: " + spinnerSelecMascota.getSelectedItem().toString().toUpperCase() + "\n" + etDescripcionCita.getText().toString());
             statement.setInt(4, idMascotaElegida);
 
@@ -202,6 +206,17 @@ public class PedirCitaFragment extends Fragment {
 
             statement.close();
             connection.close();
+
+            AlertDialog.Builder builder = new AlertDialog.Builder(requireContext());
+            builder.setTitle("Cita pedida para la mascota: " + spinnerSelecMascota.getSelectedItem().toString());
+            builder.setMessage("Has pedido correctamente la cita:\n" +
+                    "- Fecha: " + etFechaCita.getText().toString() + " " + hora + ":" + minutoStr + "\n" +
+                    "- Tipo de cita: " + spinnerSelecTipoCita.getSelectedItem().toString() + "\n" +
+                    "- Descripción: " + etDescripcionCita.getText().toString() + "\n" +
+                    "- Mascota: " + spinnerSelecMascota.getSelectedItem().toString());
+            builder.setPositiveButton("OK",null);
+            builder.create();
+            builder.show();
 
             limpiarCampos();
         } catch (SQLException ignored) {
@@ -231,7 +246,7 @@ public class PedirCitaFragment extends Fragment {
                     @Override
                     public void onDateSet(DatePicker view, int year, int monthOfYear, int dayOfMonth) {
                         // Mostrar la fecha seleccionada en el EditText
-                        etFechaCita.setText(dayOfMonth + "/" + (monthOfYear + 1) + "/" + year);
+                        etFechaCita.setText(dayOfMonth + "-" + (monthOfYear + 1) + "-" + year);
                     }
                 }, year, month, day);
 

@@ -87,5 +87,18 @@
     <string name="help_otros_datos_pedirCita">Lo básico ya está seleccionado, ahora puedes añadir datos adicionales para el veterinario:</string>
     <string name="ahora_solo_queda_pedir_la_cita">¡Ahora solo queda pedir la cita!</string>
     <string name="volver">VOLVER</string>
+    <string name="ayuda">Ayuda</string>
+    <string name="que_ves_en_miPerfil">Qué se ve en \"Mi Perfil\"</string>
+    <string name="help_nombre_mascotas_miPerfil">Lo primero que ves en tu sección de \"Mi Perfil\" son tus datos así como tu nombre, apellidos y tu correo además de las mascotas que has registrado:</string>
+    <string name="help_eliminar_mascotas_miPerfil">Para eliminar una mascota que tengas registrada solo tienes que darle al icono de la papelera:</string>
+    <string name="help_cambiar_contrasena_miPerfil">Y lo último que puedes ver en esta sección es la opción de poder cambiar tu contraseña:</string>
+    <string name="help_como_cambiar_contrasena_miPerfil">Deberás escribir en el primer campo tu contraseña actual y en el campo de abajo la contraseña nueva que quieres que tenga tu usuario.</string>
+    <string name="help_titulo_mensajes">Sección de mensajes</string>
+    <string name="help_mensajes_mensajes">Esta sección es muy sencilla, lo único que verás aquí son los mensajes de tu usuario:</string>
+    <string name="help_icono_arriba_mensajes">Si le das al icono del sobre que se encuentra en la parte de arriba podrás ver tus mensajes:</string>
+    <string name="help_icono_barra_lateral_mensajes">Y si abres la barra lateral y le das a la sección de \"Mensajes\" también llegarás hasta aquí:</string>
+    <string name="help_borrar_mensaje_mensajes">Si quieres borrar un mensaje solo tienes que darle al icono de la papelera y ya no aparecerá en tu lista de mensajes:</string>
+    <string name="help_porque_llegan_mensajes_mensajes">Los mensajes te pueden llegar porque ha habido un cambio de estado, de fecha, de hora, etc en tu cita o cambios en tu usuario.</string>
+    <string name="filtrar_por">Filtrar por:</string>
 
 </resources>

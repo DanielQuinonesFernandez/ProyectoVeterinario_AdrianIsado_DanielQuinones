@@ -6,6 +6,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ListView;
+import android.widget.Spinner;
 import android.widget.Toast;
 
 import androidx.annotation.NonNull;
@@ -15,6 +16,7 @@ import com.example.proyectoveterinario_adrianisado_danielquinones.MySQLConnectio
 import com.example.proyectoveterinario_adrianisado_danielquinones.R;
 import com.example.proyectoveterinario_adrianisado_danielquinones.UsuarioCompartido;
 import com.example.proyectoveterinario_adrianisado_danielquinones.adaptadores.AdaptadorMensajes;
+import com.example.proyectoveterinario_adrianisado_danielquinones.adaptadores.AdaptadorSpinnerFiltro;
 import com.example.proyectoveterinario_adrianisado_danielquinones.databinding.FragmentMensajesBinding;
 import com.example.proyectoveterinario_adrianisado_danielquinones.objetos.Mensaje;
 
@@ -27,8 +29,9 @@ import java.util.Date;
 
 public class MensajesFragment extends Fragment {
 
+    private Spinner spinnerFiltro;
     private FragmentMensajesBinding binding;
-    private Context context;
+    public Context context;
     private ArrayList<Mensaje> mensajes = new ArrayList<>();
 
     public View onCreateView(@NonNull LayoutInflater inflater,
@@ -38,18 +41,23 @@ public class MensajesFragment extends Fragment {
         View root = binding.getRoot();
 
         ListView lvMensajes = root.findViewById(R.id.lvMensajes);
+        spinnerFiltro = root.findViewById(R.id.spinnerFiltrarPor);
 
         AdaptadorMensajes adaptadorMensajes = new AdaptadorMensajes(root.getContext(), mensajes);
         lvMensajes.setAdapter(adaptadorMensajes);
+        adaptadorMensajes.notifyDataSetChanged();
+
+        AdaptadorSpinnerFiltro adaptadorSpinnerFiltro = new AdaptadorSpinnerFiltro(root.getContext(), mensajes);
+        spinnerFiltro.setAdapter(adaptadorSpinnerFiltro);
 
         recogerMensajesDeBBDD();
-        //insertarMensajesDePrueba();
 
         return root;
     }
 
     private void recogerMensajesDeBBDD(){
         try{
+            mensajes.clear();
             Connection connection = MySQLConnection.getConnection();
 
             String sql = "SELECT * FROM Mensajes WHERE IdUsuario = ?";
@@ -76,13 +84,6 @@ public class MensajesFragment extends Fragment {
         }catch (SQLException e){
             Toast.makeText(context, e.getMessage(), Toast.LENGTH_SHORT).show();
         }
-    }
-
-    private void insertarMensajesDePrueba() {
-        mensajes.add(new Mensaje(1, 1, "Asunto 1", "Contenido 1", new Date(), "SMS", true));
-        mensajes.add(new Mensaje(2, 1, "Asunto 2", "Contenido 2", new Date(), "SMS", true));
-        mensajes.add(new Mensaje(3, 1, "Asunto 3", "Contenido 3", new Date(), "SMS", true));
-        mensajes.add(new Mensaje(4, 1, "Asunto 4", "Contenido 4", new Date(), "SMS", true));
     }
 
     @Override

@@ -3,6 +3,12 @@
     xmlns:app="http://schemas.android.com/apk/res-auto">
 
     <item
+        android:id="@+id/menu_bar_ayuda"
+        android:title="@string/ayuda"
+        android:icon="@drawable/baseline_help_outline_24"
+        app:showAsAction="ifRoom" />
+
+    <item
         android:id="@+id/menu_bar_mensajes"
         android:title="@string/btn_menu_mensajes"
         android:icon="@drawable/baseline_email_24"
