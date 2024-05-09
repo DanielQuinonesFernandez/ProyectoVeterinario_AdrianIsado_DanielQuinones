@@ -20,18 +20,24 @@
             android:textStyle="bold"
             android:textColor="@color/black"
             android:fontFamily="@font/poppins_semibold"
-            android:textSize="15sp"/>
+            android:textSize="15sp"
+            android:gravity="center_vertical"
+            android:padding="10dp"/>
 
         <Spinner
             android:id="@+id/spinnerFiltrarPor"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginStart="10dp"
+            android:layout_marginStart="12dp"
             android:background="@drawable/bg_spinner_filtrar_por"/>
 
     </LinearLayout>
 
-    <ListView
+    <com.google.android.material.divider.MaterialDivider
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"/>
+
+    <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/lvMensajes"
         android:layout_width="match_parent"
         android:layout_height="wrap_content" />

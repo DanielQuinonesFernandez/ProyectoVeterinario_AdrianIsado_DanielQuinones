@@ -2,6 +2,7 @@ package com.example.proyectoveterinario_adrianisado_danielquinones.fragmentos;
 
 import android.Manifest;
 import android.annotation.SuppressLint;
+import android.app.Activity;
 import android.app.DatePickerDialog;
 import android.content.Intent;
 import android.content.pm.PackageManager;
@@ -21,7 +22,6 @@ import androidx.annotation.NonNull;
 import androidx.core.app.ActivityCompat;
 import androidx.core.content.ContextCompat;
 import androidx.fragment.app.Fragment;
-import androidx.lifecycle.ViewModelProvider;
 
 import com.example.proyectoveterinario_adrianisado_danielquinones.MySQLConnection;
 import com.example.proyectoveterinario_adrianisado_danielquinones.R;
@@ -29,7 +29,6 @@ import com.example.proyectoveterinario_adrianisado_danielquinones.UsuarioCompart
 import com.example.proyectoveterinario_adrianisado_danielquinones.databinding.FragmentRegistrarMascotaBinding;
 
 import java.io.ByteArrayOutputStream;
-import java.io.IOException;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.SQLException;
@@ -37,6 +36,7 @@ import java.text.DateFormat;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
+import java.util.Objects;
 
 public class RegistrarMascotaFragment extends Fragment {
 
@@ -67,7 +67,14 @@ public class RegistrarMascotaFragment extends Fragment {
         Button btnRegistrarMascota = root.findViewById(R.id.btnRegistrarMascota);
         Button btnLimpiarCampos = root.findViewById(R.id.limpiarCamposRegMascota);
 
-        btnRegistrarMascota.setOnClickListener(v -> {registrarMascota(connection);});
+        btnRegistrarMascota.setOnClickListener(v -> {
+            if(!hayCamposVacios()){
+                registrarMascota(connection);
+            } else {
+                Toast.makeText(getContext(), "Por favor, rellene todos los campos", Toast.LENGTH_SHORT).show();
+            }
+        });
+
         btnFechaNacimiento.setOnClickListener(v -> showDatePickerDialog());
 
         btnCargarImagen.setOnClickListener(v -> {
@@ -82,7 +89,23 @@ public class RegistrarMascotaFragment extends Fragment {
 
         btnLimpiarCampos.setOnClickListener(v -> limpiarCampos());
 
+        imageView.setVisibility(View.GONE);
+
+        imageView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                // Mostrar el DialogFragment con la imagen en detalle
+                mostrarDialogoImagenDetalle();
+            }
+        });
+
         return root;
+    }
+
+    // Método para mostrar el DialogFragment con la imagen en detalle
+    private void mostrarDialogoImagenDetalle() {
+        ImageDetailDialogFragment dialogFragment = ImageDetailDialogFragment.newInstance(imageBitmap);
+        dialogFragment.show(getParentFragmentManager(), "ImageDetailDialogFragment");
     }
 
     private void registrarMascota(Connection connection) {
@@ -140,11 +163,16 @@ public class RegistrarMascotaFragment extends Fragment {
         } catch (ParseException ignored) {}
     }
 
+    private boolean hayCamposVacios(){
+        return etNombre.getText().toString().isEmpty() || etEspecie.getText().toString().isEmpty() || etFechaNacimiento.getText().toString().isEmpty();
+    }
+
     private void limpiarCampos() {
         etNombre.setText("");
         etEspecie.setText("");
         etFechaNacimiento.setText("");
         imageView.setImageDrawable(null);
+        imageView.setVisibility(View.GONE);
     }
 
     @Override
@@ -203,8 +231,7 @@ public class RegistrarMascotaFragment extends Fragment {
         super.onRequestPermissionsResult(requestCode, permissions, grantResults);
         if (requestCode == REQUEST_CAMERA_PERMISSION) {
             if (grantResults.length > 0 && grantResults[0] == PackageManager.PERMISSION_GRANTED) {
-                // El usuario concedió el permiso, podemos iniciar la cámara
-                dispatchTakePictureIntent();
+                // El usuario concedió el permiso, simulamos un clic en el botón de cargar imagen
                 btnCargarImagen.performClick();
             } else {
                 // El usuario negó el permiso, muestra un mensaje o toma otras acciones
@@ -213,14 +240,19 @@ public class RegistrarMascotaFragment extends Fragment {
         }
     }
 
+
     // Método para recibir el resultado de la captura de imagen
     @Override
     public void onActivityResult(int requestCode, int resultCode, Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
-        if (requestCode == REQUEST_IMAGE_CAPTURE && resultCode == requireActivity().RESULT_OK) {
-            Bundle extras = data.getExtras();
-            imageBitmap = (Bitmap) extras.get("data");
-            imageView.setImageBitmap(imageBitmap);
+        if (requestCode == REQUEST_IMAGE_CAPTURE) {
+            requireActivity();
+            if (resultCode == Activity.RESULT_OK) {
+                Bundle extras = data.getExtras();
+                imageBitmap = (Bitmap) Objects.requireNonNull(extras).get("data");
+                imageView.setImageBitmap(imageBitmap);
+                imageView.setVisibility(View.VISIBLE);
+            }
         }
     }
 }

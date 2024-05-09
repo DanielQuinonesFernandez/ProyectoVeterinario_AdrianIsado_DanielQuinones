@@ -16,6 +16,7 @@ import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
+import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.proyectoveterinario_adrianisado_danielquinones.MySQLConnection;
 import com.example.proyectoveterinario_adrianisado_danielquinones.R;
@@ -52,6 +53,7 @@ public class MiPerfilFragment extends Fragment {
         Button btnCambiarContrasena = root.findViewById(R.id.btnCambiarPasswd);
         etContrasenaActual = root.findViewById(R.id.edPasswdActual);
         etContrasenaNueva = root.findViewById(R.id.edPasswdNueva);
+
 
         AdaptadorMascotasMiPerfil adaptador = new AdaptadorMascotasMiPerfil(root.getContext(), mascotas);
         lvMascotas.setAdapter(adaptador);

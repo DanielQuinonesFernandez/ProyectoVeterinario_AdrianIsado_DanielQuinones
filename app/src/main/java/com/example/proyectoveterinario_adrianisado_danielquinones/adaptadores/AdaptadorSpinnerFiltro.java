@@ -17,21 +17,21 @@ import java.util.List;
 public class AdaptadorSpinnerFiltro extends BaseAdapter {
 
     private final Context context;
-    private final List<Mensaje> listaMensajes;
+    private final List<String> opcionesFiltro;
 
-    public AdaptadorSpinnerFiltro(Context context, List<Mensaje> listaMensajes) {
+    public AdaptadorSpinnerFiltro(Context context, List<String> opcionesFiltro) {
         this.context = context;
-        this.listaMensajes = listaMensajes;
+        this.opcionesFiltro = opcionesFiltro;
     }
 
     @Override
     public int getCount() {
-        return listaMensajes != null ? listaMensajes.size() : 0;
+        return opcionesFiltro != null ? opcionesFiltro.size() : 0;
     }
 
     @Override
     public Object getItem(int i) {
-        return i;
+        return opcionesFiltro.get(i);
     }
 
     @Override
@@ -46,8 +46,9 @@ public class AdaptadorSpinnerFiltro extends BaseAdapter {
 
         TextView textoFiltro = rootView.findViewById(R.id.descripcionFiltro);
 
-        textoFiltro.setText(listaMensajes.get(position).getTipoMensaje());
+        textoFiltro.setText(opcionesFiltro.get(position));
 
         return rootView;
     }
 }
+

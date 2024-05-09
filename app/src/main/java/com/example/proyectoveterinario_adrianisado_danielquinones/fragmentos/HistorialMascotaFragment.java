@@ -4,16 +4,18 @@ import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.ListView;
+import android.view.animation.OvershootInterpolator;
 import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.proyectoveterinario_adrianisado_danielquinones.MySQLConnection;
 import com.example.proyectoveterinario_adrianisado_danielquinones.R;
 import com.example.proyectoveterinario_adrianisado_danielquinones.UsuarioCompartido;
-import com.example.proyectoveterinario_adrianisado_danielquinones.adaptadores.AdaptadorHistorialMedico;
+import com.example.proyectoveterinario_adrianisado_danielquinones.adaptadores.AdaptadorHistorialMedicoRecyclerView;
 import com.example.proyectoveterinario_adrianisado_danielquinones.databinding.FragmentHistorialMascotaBinding;
 import com.example.proyectoveterinario_adrianisado_danielquinones.objetos.HistorialMedico;
 
@@ -23,6 +25,9 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
 
+import jp.wasabeef.recyclerview.adapters.ScaleInAnimationAdapter;
+import jp.wasabeef.recyclerview.animators.FadeInAnimator;
+
 public class HistorialMascotaFragment extends Fragment {
 
     private FragmentHistorialMascotaBinding binding;
@@ -31,11 +36,18 @@ public class HistorialMascotaFragment extends Fragment {
     public View onCreateView(@NonNull LayoutInflater inflater,
                              ViewGroup container, Bundle savedInstanceState) {
 
-        binding = FragmentHistorialMascotaBinding.inflate(inflater, container, false);
-        View root = binding.getRoot();
+        View root = inflater.inflate(R.layout.fragment_historial_mascota, container, false);
 
-        ListView lvHistorial = root.findViewById(R.id.lvHistorial);
-        lvHistorial.setAdapter(new AdaptadorHistorialMedico(root.getContext(), historialesMedicos));
+        RecyclerView recyclerView = root.findViewById(R.id.rvHistorial);
+        recyclerView.setLayoutManager(new LinearLayoutManager(getContext()));
+        recyclerView.setItemAnimator(new FadeInAnimator(new OvershootInterpolator(5f)));
+
+        ScaleInAnimationAdapter scaleAnimation = new ScaleInAnimationAdapter(new AdaptadorHistorialMedicoRecyclerView(getContext(), historialesMedicos));
+        scaleAnimation.setDuration(500);
+        scaleAnimation.setInterpolator(new OvershootInterpolator(1f));
+        scaleAnimation.setFirstOnly(false);
+
+        recyclerView.setAdapter(new ScaleInAnimationAdapter(scaleAnimation));
 
         recogerHistorialesDeBBDD();
 

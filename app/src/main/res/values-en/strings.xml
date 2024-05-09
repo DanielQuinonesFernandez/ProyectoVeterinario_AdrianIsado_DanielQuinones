@@ -1,19 +1,20 @@
 <resources>
+    <!-- Nombres de la aplicación -->
     <string name="app_name">Animalia - Your Vet</string>
 
-    <!-- Menu Buttons -->
-    <string name="nav_header_title">Animalia</string>
-    <string name="nav_header_subtitle">animalia@animalia.es</string>
+    <!-- Botones -->
     <string name="btn_menu_miPerfil">My Profile</string>
     <string name="btn_menu_pedirCita">Request Appointment</string>
     <string name="btn_menu_mensajes">Messages</string>
     <string name="btn_menu_registrarMascota">Register Pet</string>
     <string name="btn_menu_historialMascotas">My Appointments History</string>
-    <string name="btn_menu_FAQ">FAQ</string>
+    <string name="btn_menu_FAQ" translatable="false">FAQ</string>
     <string name="action_settings">Settings</string>
     <string name="iniciar_sesion">Log In</string>
     <string name="registrarse">Sign Up</string>
     <string name="has_olvidado_tu_contrasena">Forgot Your Password?</string>
+
+    <!-- Campos de registro -->
     <string name="nombre">Name</string>
     <string name="escribe_tu_nombre">Enter Your Name</string>
     <string name="apellidos">Last Name</string>
@@ -23,6 +24,8 @@
     <string name="contrasena">Password</string>
     <string name="escribe_tu_contrasena">Enter Your Password</string>
     <string name="repite_contrasena">Repeat Your Password</string>
+
+    <!-- Registro de mascotas -->
     <string name="registra_tu_mascota">REGISTER YOUR PET</string>
     <string name="especie_mascota">Pet Species</string>
     <string name="escribe_la_especie">Enter Your Pet\'s Species</string>
@@ -31,6 +34,8 @@
     <string name="cargar_imagen">Upload a Photo of My Pet</string>
     <string name="registrar_mascota">Register Pet</string>
     <string name="limpiar_campos">Clear Fields</string>
+
+    <!-- Pedir cita -->
     <string name="pide_tu_cita">Request Your Appointment</string>
     <string name="selec_tu_mascota">Select Your Pet</string>
     <string name="selec_tipo_cita">Type of Appointment</string>
@@ -38,20 +43,18 @@
     <string name="pedir_cita">Request Appointment</string>
     <string name="numero_telefono">Phone Number</string>
     <string name="escribe_tu_numTlf">Enter Your Phone Number</string>
+
+    <!-- Historial médico -->
     <string name="historial_medico">Medical History</string>
     <string name="escribe_tu_nombre_de_mascota">Enter Your Pet\'s Name</string>
     <string name="otros_datos">Other Details</string>
-    <string name="fecha_por_defecto">01/01/1900</string>
-    <string name="btn_menu_cerrarSesion">Log Out</string>
-    <string name="mascotas">About My Pets</string>
-    <string name="sobre_mi">About me</string>
-    <string name="escribe_aqui_el_tipo_de_cita">Write here the type of appointment</string>
-    <string name="escribe_otros_datos_relevantes_sobre_la_cita">Write other relevant details</string>
-    <string name="mascotas_dosPuntos">Pets:</string>
+
+    <!-- Cambio de contraseña -->
     <string name="contrasena_actual">Actual password:</string>
     <string name="contrasena_nueva">New password:</string>
     <string name="cambiar_contrasena">Change password</string>
 
+    <!-- Tipos de cita -->
     <string-array name="tipos_de_cita">
         <item>General Consultation - €50.00</item>
         <item>Vaccination - €30.00</item>
@@ -77,4 +80,48 @@
         <item>Care Counseling - €60.00</item>
         <item>Others - Please Consult with the Veterinarian</item>
     </string-array>
+
+    <!-- Ayuda para pedir cita -->
+    <string name="como_pedir_una_cita">How to Request an Appointment</string>
+    <string name="help_selec_mascota_pedirCita">Requesting an appointment is very simple. First, you have to choose one of your registered pets:</string>
+    <string name="help_select_tipo_cita_pedirCita">After selecting your pet, you have to choose the type of appointment you want. On the right side of each appointment, you will find its price:</string>
+    <string name="help_otra_cita_pedirCita">If none of the appointment types corresponds to what you want, you can choose the last option and write to the veterinarian specifically what you want:</string>
+    <string name="help_selec_fecha_hora_pedirCita">Once you have selected your appointment, you can choose a date and time for it:</string>
+    <string name="help_otros_datos_pedirCita">The basics are already selected, now you can add additional data for the veterinarian:</string>
+    <string name="ahora_solo_queda_pedir_la_cita">Now you just have to request the appointment!</string>
+
+    <!-- Ayuda para "Mi Perfil" -->
+    <string name="que_ves_en_miPerfil">What You See in "My Profile"</string>
+    <string name="help_nombre_mascotas_miPerfil">The first thing you see in your "My Profile" section is your data as well as your name, last name, and your email in addition to the pets you have registered:</string>
+    <string name="help_eliminar_mascotas_miPerfil">To delete a pet you have registered, just click on the trash can icon:</string>
+    <string name="help_cambiar_contrasena_miPerfil">And the last thing you can see in this section is the option to change your password:</string>
+    <string name="help_como_cambiar_contrasena_miPerfil">You must enter your current password in the first field and your new password in the field below.</string>
+
+    <!-- Ayuda en la seccion de mensajes -->
+    <string name="help_titulo_mensajes">Messages Section</string>
+    <string name="help_mensajes_mensajes">This section is very simple, all you will see here are the messages of your user:</string>
+    <string name="help_icono_arriba_mensajes">If you click on the envelope icon at the top, you will be able to see your messages:</string>
+    <string name="help_icono_barra_lateral_mensajes">And if you open the sidebar and click on the "Messages" section, you will also get here:</string>
+    <string name="help_borrar_mensaje_mensajes">If you want to delete a message, just click on the trash can icon and it will no longer appear in your messages list:</string>
+    <string name="help_porque_llegan_mensajes_mensajes">Messages can reach you because there has been a change of status, date, time, etc. in your appointment or changes in your user.</string>
+
+    <!-- Ayuda para registrar una mascota -->
+    <string name="help_como_registrar_mascota_registrarMascota">How to Register a Pet</string>
+    <string name="help_info_basica_registrarMascota">The first thing you will have to enter is the name, species, and date of birth of your pet.</string>
+    <string name="help_icono_calendario_registrarMascota">If you click on the calendar icon, a calendar will open for you to select the date of birth. You will not be able to type the date directly into the text field.</string>
+    <string name="help_boton_foto_mascota_registrarMascota">The last step before registering is to upload a photo of your pet, for that you just have to click on the button like the one in the image:</string>
+    <string name="help_miniatura_foto_registrarMascota">And you will be able to see the photo you have uploaded because there will be a small thumbnail of the photo below the button:</string>
+    <string name="help_dialog_miniatura_registrarMascota">Furthermore, if you click on the thumbnail, you\'ll be able to see the photo enlarged. A dialog box like the following will appear:</string>
+
+    <!-- Otros -->
+    <string name="filtrar_por">Filter by:</string>
+    <string name="todo" translatable="false">ALL</string>
+    <string name="btn_menu_cerrarSesion">Log Out</string>
+    <string name="mascotas">About My Pets</string>
+    <string name="escribe_aqui_el_tipo_de_cita">Write here the type of appointment</string>
+    <string name="sobre_mi">About me</string>
+    <string name="escribe_otros_datos_relevantes_sobre_la_cita">Write other relevant details</string>
+    <string name="mascotas_dosPuntos">Pets:</string>
+    <string name="volver">RETURN</string>
+    <string name="ayuda">Help</string>
 </resources>

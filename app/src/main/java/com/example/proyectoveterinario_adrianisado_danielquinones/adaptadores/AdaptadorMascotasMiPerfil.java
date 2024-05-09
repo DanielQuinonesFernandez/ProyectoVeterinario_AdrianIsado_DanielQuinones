@@ -1,6 +1,7 @@
 package com.example.proyectoveterinario_adrianisado_danielquinones.adaptadores;
 
 import android.annotation.SuppressLint;
+import android.app.AlertDialog;
 import android.content.Context;
 import android.util.Log;
 import android.view.LayoutInflater;
@@ -10,6 +11,8 @@ import android.widget.BaseAdapter;
 import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
+
+import androidx.annotation.NonNull;
 
 import com.example.proyectoveterinario_adrianisado_danielquinones.MySQLConnection;
 import com.example.proyectoveterinario_adrianisado_danielquinones.R;
@@ -23,6 +26,7 @@ import java.util.ArrayList;
 import java.util.Objects;
 
 public class AdaptadorMascotasMiPerfil extends BaseAdapter {
+
     private final Context context;
     private final ArrayList<Mascota> mascotas;
 
@@ -45,38 +49,45 @@ public class AdaptadorMascotasMiPerfil extends BaseAdapter {
         return mascotas.get(position).getId();
     }
 
-    @SuppressLint({"ViewHolder", "InflateParams"})
+    @SuppressLint("InflateParams")
     @Override
     public View getView(int i, View view, ViewGroup viewGroup) {
         LayoutInflater layoutInflater = LayoutInflater.from(context);
 
-        view = layoutInflater.inflate(R.layout.item_mascotas_perfil, null);
+        if (view == null) {
+            view = layoutInflater.inflate(R.layout.item_mascotas_perfil, null);
+        }
 
         ImageView imagenMascota = view.findViewById(R.id.imagenMascotaItem);
         TextView tvNombreMascota = view.findViewById(R.id.tvNombreMascota);
         TextView tvDescripcionMascota = view.findViewById(R.id.tvDescripcionMascota);
         ImageView iconoEliminarMascota = view.findViewById(R.id.iconoEliminarMascota);
 
-        tvNombreMascota.setText(mascotas.get(i).getNombre());
-        tvDescripcionMascota.setText(mascotas.get(i).getEspecie());
-        imagenMascota.setImageBitmap(mascotas.get(i).getFotoMascota());
-        iconoEliminarMascota.setOnClickListener(v -> {
-            Mascota m = (Mascota) getItem(i);
-            for (Mascota mascota : mascotas) {
-                if (mascota.getId() == m.getId()) {
-                    Toast.makeText(context, m.getNombre() + " eliminado de tu lista", Toast.LENGTH_SHORT).show();
-                    eliminarMascotaDeBBDD(mascota);
-                    mascotas.remove(mascota);
-                    notifyDataSetChanged();
-                    break;
-                }
-            }
-        });
+        Mascota mascota = mascotas.get(i);
+
+        tvNombreMascota.setText(mascota.getNombre());
+        tvDescripcionMascota.setText(mascota.getEspecie());
+        imagenMascota.setImageBitmap(mascota.getFotoMascota());
+
+        iconoEliminarMascota.setOnClickListener(v -> mostrarDialogoConfirmacionEliminarMascota(mascota));
 
         return view;
     }
 
-    private void eliminarMascotaDeBBDD(Mascota mascota) {
+    private void mostrarDialogoConfirmacionEliminarMascota(@NonNull final Mascota mascota) {
+        AlertDialog.Builder builder = new AlertDialog.Builder(context);
+        builder.setTitle("Eliminar Mascota");
+        builder.setMessage("¿Estás seguro de que quieres eliminar a " + mascota.getNombre() + "?");
+        builder.setIcon(R.drawable.baseline_info_outline_24);
+
+        builder.setPositiveButton("Sí", (dialogInterface, i) -> eliminarMascotaDeBBDD(mascota));
+
+        builder.setNegativeButton("Cancelar", null);
+
+        builder.show();
+    }
+
+    private void eliminarMascotaDeBBDD(@NonNull Mascota mascota) {
         try {
             Connection connection = MySQLConnection.getConnection();
 
@@ -88,6 +99,12 @@ public class AdaptadorMascotasMiPerfil extends BaseAdapter {
             deleteMascotaStatement.executeUpdate();
 
             connection.close();
+
+            // Eliminar la mascota de la lista local y actualizar la vista
+            mascotas.remove(mascota);
+            notifyDataSetChanged();
+
+            Toast.makeText(context, mascota.getNombre() + " eliminado de tu lista", Toast.LENGTH_SHORT).show();
         } catch (SQLException e) {
             Toast.makeText(context, e.getMessage(), Toast.LENGTH_SHORT).show();
             Log.println(Log.ERROR, "AdaptadorMascotasMiPerfil", Objects.requireNonNull(e.getMessage()));

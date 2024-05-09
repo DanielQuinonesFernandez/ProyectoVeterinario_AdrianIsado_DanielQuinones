@@ -112,7 +112,7 @@ public class IniciarSesion_Activity extends AppCompatActivity {
                             startActivity(intent);
                             finish(); // Cerrar la actividad actual
                         }
-                    }, 1500);
+                    }, 1000);
 
                 } else {
                     // El usuario no existe en la base de datos o las credenciales son incorrectas

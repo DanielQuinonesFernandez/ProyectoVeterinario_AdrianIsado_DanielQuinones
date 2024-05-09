@@ -1,6 +1,7 @@
 package com.example.proyectoveterinario_adrianisado_danielquinones;
 
 import java.math.BigInteger;
+import java.nio.charset.StandardCharsets;
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
 
@@ -11,7 +12,7 @@ public class SeguridadContrasena {
             MessageDigest md = MessageDigest.getInstance("SHA-256");
 
             // Calcular el hash de la contraseña
-            byte[] hashedBytes = md.digest(contrasena.getBytes());
+            byte[] hashedBytes = md.digest(contrasena.getBytes(StandardCharsets.UTF_8));
 
             // Convertir el arreglo de bytes a una representación hexadecimal
             BigInteger bigInt = new BigInteger(1, hashedBytes);

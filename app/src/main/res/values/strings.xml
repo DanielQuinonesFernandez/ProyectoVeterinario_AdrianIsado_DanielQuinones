@@ -1,19 +1,25 @@
 <resources>
+    <!-- Nombres de la aplicación -->
     <string name="app_name">Animalia - Tu Veterinario</string>
 
-    <!-- Botones de menú -->
-    <string name="nav_header_title">Animalia</string>
-    <string name="nav_header_subtitle">animalia@animalia.es</string>
+    <!-- Botones -->
+    <string name="nav_header_title" translatable="false">Animalia</string>
+    <string name="nav_header_subtitle" translatable="false">animalia@animalia.es</string>
     <string name="btn_menu_miPerfil">Mi perfil</string>
     <string name="btn_menu_pedirCita">Pedir cita</string>
     <string name="btn_menu_mensajes">Mensajes</string>
     <string name="btn_menu_registrarMascota">Registrar mascota</string>
     <string name="btn_menu_historialMascotas">Historial de mis citas</string>
-    <string name="btn_menu_FAQ">FAQ</string>
+    <string name="btn_menu_FAQ" translatable="false">FAQ</string>
+    <string name="btn_menu_cerrarSesion">Cerrar sesión</string>
     <string name="action_settings">Ajustes</string>
     <string name="iniciar_sesion">Iniciar Sesión</string>
     <string name="registrarse">Registrarse</string>
     <string name="has_olvidado_tu_contrasena">¿Has olvidado tu contraseña?</string>
+    <string name="volver">VOLVER</string>
+    <string name="ayuda">Ayuda</string>
+
+    <!-- Campos de registro -->
     <string name="nombre">Nombre</string>
     <string name="escribe_tu_nombre">Escribe tu nombre</string>
     <string name="apellidos">Apellidos</string>
@@ -23,6 +29,10 @@
     <string name="contrasena">Contraseña</string>
     <string name="escribe_tu_contrasena">Escribe tu contraseña</string>
     <string name="repite_contrasena">Repite tu contraseña</string>
+    <string name="escribe_aqui_el_tipo_de_cita">Escribe aquí el tipo de cita</string>
+    <string name="escribe_otros_datos_relevantes_sobre_la_cita">Escribe otros datos relevantes</string>
+
+    <!-- Registro de mascotas -->
     <string name="registra_tu_mascota">REGISTRA TU MASCOTA</string>
     <string name="especie_mascota">Especie de tu mascota</string>
     <string name="escribe_la_especie">Escribe la especie de tu mascota</string>
@@ -31,6 +41,8 @@
     <string name="cargar_imagen">Subir foto de mi mascota</string>
     <string name="registrar_mascota">Registrar mascota</string>
     <string name="limpiar_campos">Limpiar campos</string>
+
+    <!-- Pedir cita -->
     <string name="pide_tu_cita">Pide tu cita</string>
     <string name="selec_tu_mascota">Selecciona tu mascota</string>
     <string name="selec_tipo_cita">Tipo de cita</string>
@@ -38,20 +50,18 @@
     <string name="pedir_cita">Pedir cita</string>
     <string name="numero_telefono">Teléfono</string>
     <string name="escribe_tu_numTlf">Escribe tu número de teléfono</string>
+
+    <!-- Historial médico -->
     <string name="historial_medico">Historial médico</string>
     <string name="escribe_tu_nombre_de_mascota">Escribe el nombre de tu mascota</string>
     <string name="otros_datos">Otros datos</string>
-    <string name="fecha_por_defecto">01/01/1900</string>
-    <string name="btn_menu_cerrarSesion">Cerrar sesión</string>
-    <string name="mascotas">Sobre mis mascotas</string>
-    <string name="sobre_mi">Sobre mi</string>
-    <string name="escribe_aqui_el_tipo_de_cita">Escribe aqui el tipo de cita</string>
-    <string name="escribe_otros_datos_relevantes_sobre_la_cita">Escribe otros datos relevantes sobre la cita</string>
-    <string name="mascotas_dosPuntos">Mascotas:</string>
+
+    <!-- Cambio de contraseña -->
     <string name="contrasena_actual">Contraseña actual:</string>
     <string name="contrasena_nueva">Contraseña nueva:</string>
     <string name="cambiar_contrasena">Cambiar contraseña</string>
 
+    <!-- Tipos de cita -->
     <string-array name="tipos_de_cita">
         <item>Consulta general - 50.00€</item>
         <item>Vacunación - 30.00€</item>
@@ -77,8 +87,8 @@
         <item>Consejería sobre cuidados - 60.00€</item>
         <item>Otros - Por favor, consulte con el veterinario</item>
     </string-array>
-    <!-- TODO: Remove or change this placeholder text -->
-    <string name="hello_blank_fragment">Hello blank fragment</string>
+
+    <!-- Ayuda para pedir cita -->
     <string name="como_pedir_una_cita">Como pedir una cita</string>
     <string name="help_selec_mascota_pedirCita">Pedir una cita es muy sencillo. Primero tendrás que elegir una de tus mascotas registradas:</string>
     <string name="help_select_tipo_cita_pedirCita">Después de haber seleccionado tu mascota, tendrás que seleccionar el tipo de cita que quieres elegir. A la derecha de cada cita encontrarás el precio de la misma:</string>
@@ -86,19 +96,36 @@
     <string name="help_selec_fecha_hora_pedirCita">Cuando tengas tu cita seleccionada podrás elegir una fecha y hora para la misma:</string>
     <string name="help_otros_datos_pedirCita">Lo básico ya está seleccionado, ahora puedes añadir datos adicionales para el veterinario:</string>
     <string name="ahora_solo_queda_pedir_la_cita">¡Ahora solo queda pedir la cita!</string>
-    <string name="volver">VOLVER</string>
-    <string name="ayuda">Ayuda</string>
+
+    <!-- Ayuda para "Mi Perfil" -->
     <string name="que_ves_en_miPerfil">Qué se ve en \"Mi Perfil\"</string>
     <string name="help_nombre_mascotas_miPerfil">Lo primero que ves en tu sección de \"Mi Perfil\" son tus datos así como tu nombre, apellidos y tu correo además de las mascotas que has registrado:</string>
     <string name="help_eliminar_mascotas_miPerfil">Para eliminar una mascota que tengas registrada solo tienes que darle al icono de la papelera:</string>
     <string name="help_cambiar_contrasena_miPerfil">Y lo último que puedes ver en esta sección es la opción de poder cambiar tu contraseña:</string>
     <string name="help_como_cambiar_contrasena_miPerfil">Deberás escribir en el primer campo tu contraseña actual y en el campo de abajo la contraseña nueva que quieres que tenga tu usuario.</string>
+
+    <!-- Ayuda en la seccion de mensajes -->
     <string name="help_titulo_mensajes">Sección de mensajes</string>
     <string name="help_mensajes_mensajes">Esta sección es muy sencilla, lo único que verás aquí son los mensajes de tu usuario:</string>
     <string name="help_icono_arriba_mensajes">Si le das al icono del sobre que se encuentra en la parte de arriba podrás ver tus mensajes:</string>
     <string name="help_icono_barra_lateral_mensajes">Y si abres la barra lateral y le das a la sección de \"Mensajes\" también llegarás hasta aquí:</string>
     <string name="help_borrar_mensaje_mensajes">Si quieres borrar un mensaje solo tienes que darle al icono de la papelera y ya no aparecerá en tu lista de mensajes:</string>
     <string name="help_porque_llegan_mensajes_mensajes">Los mensajes te pueden llegar porque ha habido un cambio de estado, de fecha, de hora, etc en tu cita o cambios en tu usuario.</string>
+
+    <!-- Ayuda para registrar una mascota -->
+    <string name="help_como_registrar_mascota_registrarMascota">Como registrar una mascota</string>
+    <string name="help_info_basica_registrarMascota">Lo primero que tendrás que ingresar es el nombre, la especie y la fecha de nacimiento de tu mascota.</string>
+    <string name="help_icono_calendario_registrarMascota">Si le das al icono del calendario se abrirá un calendario para que selecciones la fecha de nacimiento. No podrás escribir directamente la fecha en el campo de texto.</string>
+    <string name="help_boton_foto_mascota_registrarMascota">El último paso antes de realizar el registro es subir una foto de tu mascota, para eso solo tienes que seleccionar en el botón como el que sale en la imagen:</string>
+    <string name="help_miniatura_foto_registrarMascota">Y podrás ver la foto que has subido porque habrá una pequeña miniatura de la foto debajo del botón:</string>
+    <string name="help_dialog_miniatura_registrarMascota">Además si le das click a la miniatura podrás ver la foto ampliada. Saldrá un dialogo como el siguiente:</string>
+
+    <!-- Otros -->
     <string name="filtrar_por">Filtrar por:</string>
+    <string name="todo" translatable="false">TODO</string>
+    <string name="mascotas">Sobre mis mascotas</string>
+    <string name="sobre_mi">Sobre mí</string>
+    <string name="mascotas_dosPuntos">Mascotas:</string>
+    <string name="fecha_por_defecto" translatable="false">01-01-1900</string>
 
 </resources>

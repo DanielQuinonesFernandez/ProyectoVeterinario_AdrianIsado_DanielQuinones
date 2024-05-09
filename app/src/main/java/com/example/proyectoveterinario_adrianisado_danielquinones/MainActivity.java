@@ -18,6 +18,7 @@ import androidx.navigation.ui.NavigationUI;
 import com.example.proyectoveterinario_adrianisado_danielquinones.actividades.ayudas.AyudaMensajes;
 import com.example.proyectoveterinario_adrianisado_danielquinones.actividades.ayudas.AyudaMiPerfil;
 import com.example.proyectoveterinario_adrianisado_danielquinones.actividades.ayudas.AyudaPedirCita;
+import com.example.proyectoveterinario_adrianisado_danielquinones.actividades.ayudas.AyudaRegistrarMascota;
 import com.example.proyectoveterinario_adrianisado_danielquinones.databinding.ActivityMainBinding;
 import com.example.proyectoveterinario_adrianisado_danielquinones.objetos.Usuario;
 import com.google.android.material.navigation.NavigationView;
@@ -110,7 +111,8 @@ public class MainActivity extends AppCompatActivity {
             startActivity(i);
         }
         else if(fragmentActualId == R.id.nav_registrarMascota){
-
+            Intent i = new Intent(this, AyudaRegistrarMascota.class);
+            startActivity(i);
         }
         else if(fragmentActualId == R.id.nav_historialMascotas){
 
