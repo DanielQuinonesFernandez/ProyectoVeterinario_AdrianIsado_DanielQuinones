@@ -46,7 +46,6 @@ public class RegistrarMascotaFragment extends Fragment {
     static final int REQUEST_IMAGE_CAPTURE = 1;
     static final int REQUEST_CAMERA_PERMISSION = 100;
     private Button btnCargarImagen;
-    private Connection connection;
     private Bitmap imageBitmap;
 
     @Override
@@ -55,8 +54,6 @@ public class RegistrarMascotaFragment extends Fragment {
 
         binding = FragmentRegistrarMascotaBinding.inflate(inflater, container, false);
         View root = binding.getRoot();
-
-        connection = MySQLConnection.getConnection();
 
         etFechaNacimiento = root.findViewById(R.id.etFechaNacimientoMascota);
         etNombre = root.findViewById(R.id.etNombreMascota);
@@ -69,7 +66,7 @@ public class RegistrarMascotaFragment extends Fragment {
 
         btnRegistrarMascota.setOnClickListener(v -> {
             if(!hayCamposVacios()){
-                registrarMascota(connection);
+                registrarMascota();
             } else {
                 Toast.makeText(getContext(), "Por favor, rellene todos los campos", Toast.LENGTH_SHORT).show();
             }
@@ -78,6 +75,7 @@ public class RegistrarMascotaFragment extends Fragment {
         btnFechaNacimiento.setOnClickListener(v -> showDatePickerDialog());
 
         btnCargarImagen.setOnClickListener(v -> {
+
             // Antes de iniciar la cámara, verificamos si tenemos permiso
             if (checkCameraPermission()) {
                 dispatchTakePictureIntent();
@@ -91,12 +89,9 @@ public class RegistrarMascotaFragment extends Fragment {
 
         imageView.setVisibility(View.GONE);
 
-        imageView.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                // Mostrar el DialogFragment con la imagen en detalle
-                mostrarDialogoImagenDetalle();
-            }
+        imageView.setOnClickListener(v -> {
+            // Mostrar el DialogFragment con la imagen en detalle
+            mostrarDialogoImagenDetalle();
         });
 
         return root;
@@ -108,7 +103,10 @@ public class RegistrarMascotaFragment extends Fragment {
         dialogFragment.show(getParentFragmentManager(), "ImageDetailDialogFragment");
     }
 
-    private void registrarMascota(Connection connection) {
+    private void registrarMascota() {
+
+        Connection connection = MySQLConnection.getConnection();
+
         try {
             String nombre = etNombre.getText().toString();
             String especie = etEspecie.getText().toString();

@@ -127,5 +127,8 @@
     <string name="sobre_mi">Sobre mí</string>
     <string name="mascotas_dosPuntos">Mascotas:</string>
     <string name="fecha_por_defecto" translatable="false">01-01-1900</string>
+    <string name="escribe_tu_numero_para_nueva_passwd_sms">Escribe tu número de teléfono para recibir tu nueva contraseña por SMS:</string>
+    <string name="enviar_sms">Enviar SMS</string>
+    <string name="escribe_el_numero_sin_prefijo">¡Escribe el número sin prefijo!</string>
 
 </resources>

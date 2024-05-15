@@ -61,7 +61,8 @@
                 android:layout_width="match_parent"
                 android:layout_height="210dp"
                 android:background="@drawable/border"
-                android:padding="5dp" />
+                android:padding="5dp"
+                android:isScrollContainer="true"/>
 
             <com.google.android.material.divider.MaterialDivider
                 android:layout_width="match_parent"

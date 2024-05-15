@@ -1,9 +1,12 @@
 package com.example.proyectoveterinario_adrianisado_danielquinones.actividades.inicioSesionRegistro;
 
+import android.Manifest;
 import android.content.Context;
 import android.content.Intent;
+import android.content.pm.PackageManager;
 import android.os.Bundle;
 import android.os.Handler;
+import android.telephony.SmsManager;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -11,7 +14,9 @@ import android.widget.LinearLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.core.app.ActivityCompat;
 
 import com.example.proyectoveterinario_adrianisado_danielquinones.MainActivity;
 import com.example.proyectoveterinario_adrianisado_danielquinones.MySQLConnection;
@@ -19,16 +24,11 @@ import com.example.proyectoveterinario_adrianisado_danielquinones.R;
 import com.example.proyectoveterinario_adrianisado_danielquinones.SeguridadContrasena;
 import com.example.proyectoveterinario_adrianisado_danielquinones.objetos.Usuario;
 import com.google.android.material.progressindicator.CircularProgressIndicator;
-import com.google.firebase.FirebaseApp;
-import com.google.firebase.auth.FirebaseAuth;
-import com.google.firebase.auth.FirebaseUser;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
-import java.util.Objects;
-import java.util.Random;
 
 public class IniciarSesion_Activity extends AppCompatActivity {
 
@@ -51,6 +51,14 @@ public class IniciarSesion_Activity extends AppCompatActivity {
         Button btnIniciarSesion = findViewById(R.id.btnIniciarSesion);
         Button btnLimpiarCampos = findViewById(R.id.btnLimpiarCampos);
         TextView tvContraseniaOlvidada = findViewById(R.id.tvOlvidasteContrasena);
+
+        tvContraseniaOlvidada.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(context, ContrasenaOlvidadaActivity.class);
+                startActivity(intent);
+            }
+        });
 
         btnIniciarSesion.setOnClickListener(v -> {
             if (!hayCamposVacios()) {

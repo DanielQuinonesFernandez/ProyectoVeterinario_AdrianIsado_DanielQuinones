@@ -124,4 +124,5 @@
     <string name="mascotas_dosPuntos">Pets:</string>
     <string name="volver">RETURN</string>
     <string name="ayuda">Help</string>
+    <string name="escribe_tu_numero_para_nueva_passwd_sms">Type your phone to receive your new password through SMS:</string>
 </resources>
