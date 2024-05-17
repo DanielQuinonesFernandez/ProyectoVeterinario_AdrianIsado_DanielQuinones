@@ -70,7 +70,7 @@ public class Registrarse_Activity extends AppCompatActivity {
                         }
 
                         // Construir la consulta INSERT INTO
-                        String query = "INSERT INTO `Usuarios` (`NombreUsuario`, `ApellidosUsuario`, `CorreoElectronico`, `Contrasenia`, `numTelefono`) VALUES (?, ?, ?, ?, ?)";
+                        String query = "INSERT INTO `Usuarios` (`NombreUsuario`, `ApellidosUsuario`, `CorreoElectronico`, `Contrasenia`, `numTelefono`, `EsAdmin`) VALUES (?, ?, ?, ?, ?, ?)";
 
                         // Preparar la declaración SQL
                         PreparedStatement statement = connection.prepareStatement(query);
@@ -81,6 +81,7 @@ public class Registrarse_Activity extends AppCompatActivity {
                         statement.setString(3, correoElectronico);
                         statement.setString(4, SeguridadContrasena.hashearContrasena(contrasenia));
                         statement.setInt(5, Integer.parseInt(numTelefono));
+                        statement.setInt(6, 0);
 
                         // Ejecutar la consulta
                         int filasInsertadas = statement.executeUpdate();

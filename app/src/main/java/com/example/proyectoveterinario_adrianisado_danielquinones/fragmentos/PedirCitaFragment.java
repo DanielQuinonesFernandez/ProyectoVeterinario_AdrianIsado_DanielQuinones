@@ -120,7 +120,6 @@ public class PedirCitaFragment extends Fragment {
             @Override
             public void onTimeChanged(TimePicker view, int hourOfDay, int minute) {
                 int hora = timePicker.getHour();
-                //int minuto = timePicker.getMinute();
                 @SuppressLint("DefaultLocale") String minutoStr = String.format("%02d", timePicker.getMinute());
 
                 tvFechaHoraSeleccionada.setText("Fecha seleccionada: " + etFechaCita.getText().toString() + " " + hora + ":" + minutoStr);
@@ -241,11 +240,11 @@ public class PedirCitaFragment extends Fragment {
         // Crear un DatePickerDialog
         DatePickerDialog datePickerDialog = new DatePickerDialog(requireContext(),
                 new DatePickerDialog.OnDateSetListener() {
-                    @SuppressLint("SetTextI18n")
+                    @SuppressLint({"SetTextI18n", "DefaultLocale"})
                     @Override
                     public void onDateSet(DatePicker view, int year, int monthOfYear, int dayOfMonth) {
                         // Mostrar la fecha seleccionada en el EditText
-                        etFechaCita.setText(dayOfMonth + "-" + (monthOfYear + 1) + "-" + year);
+                        etFechaCita.setText(String.format("%02d", dayOfMonth) + "-" + String.format("%02d", (monthOfYear + 1)) + "-" + String.format("%04d", year));
                     }
                 }, year, month, day);
 

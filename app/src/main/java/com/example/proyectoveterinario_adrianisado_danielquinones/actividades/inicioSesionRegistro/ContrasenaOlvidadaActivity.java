@@ -1,9 +1,6 @@
 package com.example.proyectoveterinario_adrianisado_danielquinones.actividades.inicioSesionRegistro;
 
 import android.Manifest;
-import android.content.ClipData;
-import android.content.ClipboardManager;
-import android.content.Context;
 import android.content.pm.PackageManager;
 import android.os.Bundle;
 import android.os.Handler;
@@ -110,24 +107,9 @@ public class ContrasenaOlvidadaActivity extends AppCompatActivity {
             smsManager.sendTextMessage(numeroTelefono, null, "Tu nueva contraseña es: " + nuevaContrasena, null, null);
             Toast.makeText(this, "SMS enviado", Toast.LENGTH_SHORT).show();
             reiniciarContrasena(numeroTelefono);
-            copiarPasswdAlPortapapeles();
         } else {
             Toast.makeText(this, "Ingrese un número de teléfono", Toast.LENGTH_SHORT).show();
         }
-    }
-
-    private void copiarPasswdAlPortapapeles(){
-        // Obtener el servicio del portapapeles
-        ClipboardManager clipboard = (ClipboardManager) getSystemService(Context.CLIPBOARD_SERVICE);
-
-        // Crear un ClipData para almacenar el texto
-        ClipData clip = ClipData.newPlainText("Contraseña copiada", nuevaContrasena);
-
-        // Establecer el ClipData en el portapapeles
-        clipboard.setPrimaryClip(clip);
-
-        // Mostrar un mensaje de confirmación
-        Toast.makeText(this, "Contraseña copiada al portapapeles", Toast.LENGTH_SHORT).show();
     }
 
     private String generarContrasena(int longitud) {
