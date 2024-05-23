@@ -14,7 +14,6 @@ import androidx.core.view.WindowInsetsCompat;
 
 import com.example.proyectoveterinario_adrianisado_danielquinones.actividades.inicioSesionRegistro.IniciarSesion_Registrarse_Activity;
 
-import java.util.Objects;
 import java.util.Timer;
 import java.util.TimerTask;
 

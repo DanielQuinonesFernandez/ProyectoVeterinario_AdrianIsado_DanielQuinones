@@ -10,7 +10,6 @@ import androidx.core.view.ViewCompat;
 import androidx.core.view.WindowInsetsCompat;
 
 import com.example.proyectoveterinario_adrianisado_danielquinones.R;
-import com.google.android.material.button.MaterialButton;
 
 public class AyudaRegistrarMascota extends AppCompatActivity {
 

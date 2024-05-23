@@ -2,8 +2,6 @@ package com.example.proyectoveterinario_adrianisado_danielquinones.objetos;
 
 import androidx.annotation.NonNull;
 
-import java.util.Date;
-
 public class HistorialMedico {
     private final int id;
     private final String fechaCita;

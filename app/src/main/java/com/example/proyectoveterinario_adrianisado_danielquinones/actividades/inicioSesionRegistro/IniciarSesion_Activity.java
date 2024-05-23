@@ -1,7 +1,6 @@
 package com.example.proyectoveterinario_adrianisado_danielquinones.actividades.inicioSesionRegistro;
 
 import android.content.Context;
-import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
 import android.os.Handler;
@@ -26,8 +25,6 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
-import java.util.regex.Matcher;
-import java.util.regex.Pattern;
 
 public class IniciarSesion_Activity extends AppCompatActivity {
 

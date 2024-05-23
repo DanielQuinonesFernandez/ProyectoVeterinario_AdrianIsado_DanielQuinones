@@ -9,9 +9,7 @@ import android.widget.BaseAdapter;
 import android.widget.TextView;
 
 import com.example.proyectoveterinario_adrianisado_danielquinones.R;
-import com.example.proyectoveterinario_adrianisado_danielquinones.objetos.Mensaje;
 
-import java.util.ArrayList;
 import java.util.List;
 
 public class AdaptadorSpinnerFiltro extends BaseAdapter {
