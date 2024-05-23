@@ -1,101 +1,36 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:orientation="vertical">
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    android:padding="5dp"
+    android:gravity="center"
+    android:layout_gravity="center">
 
-    <!-- Encabezado de la pantalla -->
     <TextView
-        android:id="@+id/textViewTitle"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:fontFamily="@font/poppins_semibold"
-        android:gravity="center"
-        android:padding="16dp"
-        android:text="Preguntas Frecuentes"
+        android:layout_gravity="center"
+        android:layout_marginBottom="15dp"
+        android:fontFamily="@font/poppins_bold"
+        android:text="@string/preguntas_frecuentes"
+        android:textAlignment="center"
         android:textAllCaps="true"
         android:textColor="@color/black"
-        android:textSize="24sp"
-        android:textStyle="bold" />
+        android:textSize="27sp"
+        android:textStyle="bold"
+        android:layout_marginTop="10dp"/>
 
-    <!-- Pregunta 1 -->
-    <LinearLayout
+    <!-- Separador -->
+    <View
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="vertical"
-        android:padding="16dp">
+        android:layout_height="1dp"
+        android:background="@android:color/darker_gray"
+        android:layout_marginBottom="25dp"/>
 
-        <TextView
-            android:id="@+id/textViewQuestion1"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:fontFamily="@font/poppins_bold"
-            android:text="¿Cuáles son los horarios de atención?"
-            android:textColor="@color/black"
-            android:textSize="18sp"
-            android:textStyle="bold" />
-
-        <TextView
-            android:id="@+id/textViewAnswer1"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:fontFamily="@font/poppins"
-            android:text="Nuestro horario de atención es de lunes a viernes de 9:00 a 18:00 y los sábados de 9:00 a 14:00." />
-
-    </LinearLayout>
-
-    <!-- Pregunta 2 -->
-    <LinearLayout
+    <ExpandableListView
+        android:id="@+id/expandableListviewFAQ"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="vertical"
-        android:padding="16dp">
-
-        <TextView
-            android:id="@+id/textViewQuestion2"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:fontFamily="@font/poppins_bold"
-            android:text="¿Qué servicios ofrecen?"
-            android:textColor="@color/black"
-            android:textSize="18sp"
-            android:textStyle="bold" />
-
-        <TextView
-            android:id="@+id/textViewAnswer2"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:fontFamily="@font/poppins"
-            android:text="Ofrecemos servicios de consulta veterinaria, vacunación, cirugías, análisis clínicos, entre otros." />
-
-    </LinearLayout>
-
-    <!-- Pregunta 3 -->
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="vertical"
-        android:padding="16dp">
-
-        <TextView
-            android:id="@+id/textViewQuestion3"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:fontFamily="@font/poppins_bold"
-            android:text="¿Cómo puedo programar una cita?"
-            android:textColor="@color/black"
-            android:textSize="18sp"
-            android:textStyle="bold" />
-
-        <TextView
-            android:id="@+id/textViewAnswer3"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:fontFamily="@font/poppins"
-            android:text="Puedes programar una cita llamando a nuestro número telefónico o visitando nuestra clínica en persona." />
-
-    </LinearLayout>
-
-    <!-- Agrega más preguntas y respuestas según sea necesario -->
+        android:layout_height="match_parent" />
 
 </LinearLayout>

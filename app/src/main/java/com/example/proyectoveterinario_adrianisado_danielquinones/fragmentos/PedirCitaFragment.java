@@ -103,7 +103,6 @@ public class PedirCitaFragment extends Fragment {
             @Override
             public void onTextChanged(CharSequence s, int start, int before, int count) {
                 int hora = timePicker.getHour();
-                //int minuto = timePicker.getMinute();
                 @SuppressLint("DefaultLocale") String minutoStr = String.format("%02d", timePicker.getMinute());
 
                 tvFechaHoraSeleccionada.setText("Fecha seleccionada: " + etFechaCita.getText().toString() + " " + hora + ":" + minutoStr);
@@ -182,7 +181,6 @@ public class PedirCitaFragment extends Fragment {
     private void pedirCita() {
         try {
             int hora = timePicker.getHour();
-            //int minuto = timePicker.getMinute();
             @SuppressLint("DefaultLocale") String minutoStr = String.format("%02d", timePicker.getMinute());
 
             Connection connection = MySQLConnection.getConnection();

@@ -130,5 +130,6 @@
     <string name="escribe_tu_numero_para_nueva_passwd_sms">Escribe tu número de teléfono para recibir tu nueva contraseña por SMS:</string>
     <string name="enviar_sms">Enviar SMS</string>
     <string name="escribe_el_numero_sin_prefijo">¡Escribe el número sin prefijo!</string>
+    <string name="preguntas_frecuentes">Preguntas frecuentes</string>
 
 </resources>

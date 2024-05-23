@@ -20,12 +20,15 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 
 public class Registrarse_Activity extends AppCompatActivity {
 
     private Connection connection;
     private Context context;
     private EditText etNombre, etApellidos, etCorreoElectronico, etContrasenia, etRepiteContrasenia, etNumTelefono;
+    private static final String EMAIL_REGEX = "^[A-Za-z0-9+_.-]+@[A-Za-z0-9.-]+$";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -70,7 +73,7 @@ public class Registrarse_Activity extends AppCompatActivity {
                         }
 
                         // Construir la consulta INSERT INTO
-                        String query = "INSERT INTO `Usuarios` (`NombreUsuario`, `ApellidosUsuario`, `CorreoElectronico`, `Contrasenia`, `numTelefono`, `EsAdmin`) VALUES (?, ?, ?, ?, ?, ?)";
+                        String query = "INSERT INTO `Usuarios` (`NombreUsuario`, `ApellidosUsuario`, `CorreoElectronico`, `Contrasenia`, `numTelefono`, `EsAdmin`, `EstaVetado`) VALUES (?, ?, ?, ?, ?, ?, ?)";
 
                         // Preparar la declaración SQL
                         PreparedStatement statement = connection.prepareStatement(query);
@@ -81,7 +84,8 @@ public class Registrarse_Activity extends AppCompatActivity {
                         statement.setString(3, correoElectronico);
                         statement.setString(4, SeguridadContrasena.hashearContrasena(contrasenia));
                         statement.setInt(5, Integer.parseInt(numTelefono));
-                        statement.setInt(6, 0);
+                        statement.setInt(6, 0); // 0 == false | 1 == true
+                        statement.setInt(7, 0); // 0 == false | 1 == true
 
                         // Ejecutar la consulta
                         int filasInsertadas = statement.executeUpdate();
@@ -116,54 +120,69 @@ public class Registrarse_Activity extends AppCompatActivity {
         String correo = etCorreoElectronico.getText().toString();
         String contrasenia = etContrasenia.getText().toString();
 
-        // Realizar la consulta SQL para buscar el usuario en la base de datos
-        Connection connection = MySQLConnection.getConnection();
-        if (connection != null) {
-            try {
-                // Consulta SQL para buscar el usuario por correo electrónico y contraseña
-                String consulta = "SELECT * FROM Usuarios WHERE CorreoElectronico = ? AND Contrasenia = ?";
-                PreparedStatement statement = connection.prepareStatement(consulta);
-                statement.setString(1, correo);
-                statement.setString(2, SeguridadContrasena.hashearContrasena(contrasenia));
-                ResultSet resultSet = statement.executeQuery();
+        if(esCorreoValido(correo)){
+            // Realizar la consulta SQL para buscar el usuario en la base de datos
+            Connection connection = MySQLConnection.getConnection();
+            if (connection != null) {
+                try {
+                    // Consulta SQL para buscar el usuario por correo electrónico y contraseña
+                    String consulta = "SELECT * FROM Usuarios WHERE CorreoElectronico = ? AND Contrasenia = ?";
+                    PreparedStatement statement = connection.prepareStatement(consulta);
+                    statement.setString(1, correo);
+                    statement.setString(2, SeguridadContrasena.hashearContrasena(contrasenia));
+                    ResultSet resultSet = statement.executeQuery();
 
-                // Verificar si se encontró algún resultado
-                if (resultSet.next()) {
-                    // El usuario existe en la base de datos
+                    // Verificar si se encontró algún resultado
+                    if (resultSet.next()) {
+                        // El usuario existe en la base de datos
 
-                    // Obtener los datos del usuario
-                    int idUsuario = resultSet.getInt("IdUsuario");
-                    String nombre = resultSet.getString("NombreUsuario");
-                    String apellidos = resultSet.getString("ApellidosUsuario");
-                    String correoElectronico = resultSet.getString("CorreoElectronico");
-                    String contraseniaUsuario = resultSet.getString("Contrasenia");
-                    int numTelefono = resultSet.getInt("NumTelefono");
+                        // Obtener los datos del usuario
+                        int idUsuario = resultSet.getInt("IdUsuario");
+                        String nombre = resultSet.getString("NombreUsuario");
+                        String apellidos = resultSet.getString("ApellidosUsuario");
+                        String correoElectronico = resultSet.getString("CorreoElectronico");
+                        String contraseniaUsuario = resultSet.getString("Contrasenia");
+                        int numTelefono = resultSet.getInt("NumTelefono");
+                        boolean esAdmin = resultSet.getBoolean("EsAdmin");
+                        boolean estaVetado = resultSet.getBoolean("EstaVetado");
+                        String razonVeto = resultSet.getString("RazonVeto");
 
-                    Usuario usuarioIniciado = new Usuario(idUsuario, nombre, apellidos, correoElectronico, SeguridadContrasena.hashearContrasena(contraseniaUsuario), numTelefono);
+                        Usuario usuarioIniciado = new Usuario(idUsuario, nombre, apellidos, correoElectronico, SeguridadContrasena.hashearContrasena(contraseniaUsuario), numTelefono, esAdmin, estaVetado, razonVeto);
 
-                    // Redirigir al usuario a la pantalla principal
-                    Intent intent = new Intent(context, MainActivity.class);
-                    intent.putExtra("usuarioIniciado", usuarioIniciado);
-                    startActivity(intent);
-                    finish(); // Cerrar la actividad actual
+                        // Redirigir al usuario a la pantalla principal
+                        Intent intent = new Intent(context, MainActivity.class);
+                        intent.putExtra("usuarioIniciado", usuarioIniciado);
+                        startActivity(intent);
+                        finish(); // Cerrar la actividad actual
 
-                } else {
-                    // El usuario no existe en la base de datos o las credenciales son incorrectas
-                    // Puedes mostrar un mensaje de error al usuario
-                    Toast.makeText(context, "Correo electrónico o contraseña incorrectos", Toast.LENGTH_SHORT).show();
-                }
+                    } else {
+                        // El usuario no existe en la base de datos o las credenciales son incorrectas
+                        // Puedes mostrar un mensaje de error al usuario
+                        Toast.makeText(context, "Correo electrónico o contraseña incorrectos", Toast.LENGTH_SHORT).show();
+                    }
 
-                resultSet.close();
-                connection.close();
+                    resultSet.close();
+                    connection.close();
 
-            } catch (SQLException ignored) {}
+                } catch (SQLException ignored) {}
+            } else {
+                // No se pudo establecer la conexión a la base de datos
+                // Puedes mostrar un mensaje de error al usuario
+                Toast.makeText(context, "Error al conectar con la base de datos", Toast.LENGTH_SHORT).show();
+            }
         } else {
-            // No se pudo establecer la conexión a la base de datos
-            // Puedes mostrar un mensaje de error al usuario
-            Toast.makeText(context, "Error al conectar con la base de datos", Toast.LENGTH_SHORT).show();
+            Toast.makeText(context, "El correo no tiene un formato válido", Toast.LENGTH_SHORT).show();
         }
     }
 
+    private boolean esCorreoValido(String email) {
+        // Compilar la expresión regular
+        Pattern pattern = Pattern.compile(EMAIL_REGEX);
+        // Crear un matcher que comparará el correo con la expresión regular
+        Matcher matcher = pattern.matcher(email);
+        // Devolver true si el correo coincide con la expresión regular, false en caso contrario
+        return matcher.matches();
+    }
 
     private boolean correoExiste(@NonNull Connection connection, String correoElectronico) throws SQLException {
         String query = "SELECT COUNT(*) FROM Usuarios WHERE CorreoElectronico = ?";
