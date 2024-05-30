@@ -67,6 +67,7 @@ public class MensajesFragment extends Fragment {
         Spinner spinnerFiltro = root.findViewById(R.id.spinnerFiltrarPor);
 
         AdaptadorSpinnerFiltro adaptadorSpinnerFiltro = new AdaptadorSpinnerFiltro(root.getContext(), opcionesFiltro);
+
         spinnerFiltro.setAdapter(adaptadorSpinnerFiltro);
 
         spinnerFiltro.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
