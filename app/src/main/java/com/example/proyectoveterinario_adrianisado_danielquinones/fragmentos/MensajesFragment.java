@@ -45,8 +45,6 @@ public class MensajesFragment extends Fragment {
 
         context = requireContext();
 
-
-
         binding = FragmentMensajesBinding.inflate(inflater, container, false);
         View root = binding.getRoot();
 

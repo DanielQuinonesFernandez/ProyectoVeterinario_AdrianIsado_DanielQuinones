@@ -143,21 +143,21 @@
 
                 </com.google.android.material.textfield.TextInputLayout>
 
-                <com.google.android.material.button.MaterialButton
+                <TextView
                     android:id="@+id/btnCambiarPasswd"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center"
+                    android:gravity="center"
+                    android:layout_marginBottom="10dp"
+                    android:background="@drawable/btn_azul_cielo"
+                    android:fontFamily="@font/poppins_bold"
                     android:text="@string/cambiar_contrasena"
-                    android:textColor="@color/purple_700"
-                    android:textSize="18sp"
+                    android:textColor="@color/black"
+                    android:textSize="15sp"
                     android:textStyle="bold"
-                    app:cornerRadius="10dp"
-                    app:strokeColor="@color/purple_700"
-                    app:strokeWidth="2dp"
-                    android:backgroundTint="#FFF"
-                    android:padding="8dp"
-                    android:fontFamily="@font/poppins_bold"/>
+                    android:padding="10dp"
+                    android:textAllCaps="true"/>
 
             </LinearLayout>
 

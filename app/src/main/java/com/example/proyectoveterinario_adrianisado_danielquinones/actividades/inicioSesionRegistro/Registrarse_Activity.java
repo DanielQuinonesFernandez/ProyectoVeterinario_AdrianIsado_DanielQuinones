@@ -5,6 +5,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.annotation.NonNull;
@@ -45,8 +46,8 @@ public class Registrarse_Activity extends AppCompatActivity {
         etContrasenia = findViewById(R.id.etContrasena);
         etRepiteContrasenia = findViewById(R.id.etRepiteContrasena);
         etNumTelefono = findViewById(R.id.etNumTelefono);
-        Button btnRegistrarse = findViewById(R.id.btnRegistrarse);
-        Button btnLimpiarCampos = findViewById(R.id.btnLimpiarCampos);
+        TextView btnRegistrarse = findViewById(R.id.btnRegistrarse);
+        TextView btnLimpiarCampos = findViewById(R.id.btnLimpiarCampos);
 
         // Al pulsar el botón de registrarse, inserta el usuario en la base de datos
         btnRegistrarse.setOnClickListener(v -> registrarUsuario(connection, etNombre.getText().toString(), etApellidos.getText().toString(), etCorreoElectronico.getText().toString(), etContrasenia.getText().toString(), etNumTelefono.getText().toString()));

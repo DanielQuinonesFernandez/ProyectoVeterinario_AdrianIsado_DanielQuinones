@@ -30,22 +30,25 @@
         android:padding="30dp" >
 
         <!-- Boton Iniciar Sesion -->
-        <Button
+        <TextView
             android:id="@+id/btnIniciarSesion"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
-            android:background="@drawable/btn_border"
-            android:backgroundTint="@color/white"
+            android:gravity="center"
+            android:layout_marginBottom="10dp"
+            android:background="@drawable/btn_azul_cielo"
             android:fontFamily="@font/poppins_bold"
             android:text="@string/iniciar_sesion"
-            android:textColor="#2E038F"
-            android:textSize="20sp"
-            android:textStyle="bold" />
+            android:textColor="@color/black"
+            android:textSize="18sp"
+            android:textStyle="bold"
+            android:padding="10dp"
+            android:textAllCaps="true"/>
 
         <!-- Separador -->
         <View
-            android:layout_marginTop="30dp"
+            android:layout_marginTop="20dp"
             android:layout_marginBottom="20dp"
             android:layout_marginStart="20dp"
             android:layout_marginEnd="20dp"
@@ -54,16 +57,21 @@
             android:background="@android:color/darker_gray" />
 
         <!-- Boton Registrarse -->
-        <Button
+        <TextView
             android:id="@+id/btnRegistrarse"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
+            android:gravity="center"
+            android:layout_marginBottom="10dp"
+            android:background="@drawable/btn_azul_grisaceo"
             android:fontFamily="@font/poppins_bold"
-            android:padding="10dp"
             android:text="@string/registrarse"
-            android:textSize="20sp"
-            android:textStyle="bold" />
+            android:textColor="@color/black"
+            android:textSize="18sp"
+            android:textStyle="bold"
+            android:padding="10dp"
+            android:textAllCaps="true"/>
 
     </LinearLayout>
 

@@ -92,10 +92,9 @@ public class AdaptadorMascotasMiPerfil extends BaseAdapter {
             Connection connection = MySQLConnection.getConnection();
 
             // Eliminar la mascota
-            String deleteMascotaQuery = "UPDATE Mascotas SET IdUsuario = ? WHERE IdMascota = ?;";
+            String deleteMascotaQuery = "DELETE FROM Mascotas WHERE IdMascota = ?;";
             PreparedStatement deleteMascotaStatement = connection.prepareStatement(deleteMascotaQuery);
-            deleteMascotaStatement.setString(1, "DEL" + UsuarioCompartido.getUsuario().getId());
-            deleteMascotaStatement.setInt(2, mascota.getId());
+            deleteMascotaStatement.setInt(1, mascota.getId());
             deleteMascotaStatement.executeUpdate();
 
             connection.close();

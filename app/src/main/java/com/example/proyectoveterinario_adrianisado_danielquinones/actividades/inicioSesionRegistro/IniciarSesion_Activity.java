@@ -44,8 +44,8 @@ public class IniciarSesion_Activity extends AppCompatActivity {
         circularProgressIndicator = findViewById(R.id.circularProgressIndicator);
         etCorreo = findViewById(R.id.etCorreoElectronico);
         etContrasenia = findViewById(R.id.etContrasena);
-        Button btnIniciarSesion = findViewById(R.id.btnIniciarSesion);
-        Button btnLimpiarCampos = findViewById(R.id.btnLimpiarCampos);
+        TextView btnIniciarSesion = findViewById(R.id.btnIniciarSesion);
+        TextView btnLimpiarCampos = findViewById(R.id.btnLimpiarCampos);
         TextView tvContraseniaOlvidada = findViewById(R.id.tvOlvidasteContrasena);
 
         tvContraseniaOlvidada.setOnClickListener(v -> {
@@ -77,7 +77,8 @@ public class IniciarSesion_Activity extends AppCompatActivity {
                 // Mostrar mensaje de error al usuario y esperar antes de volver a intentar
                 Toast.makeText(context, "Intentando conectar con la base de datos...", Toast.LENGTH_SHORT).show();
                 try {
-                    Thread.sleep(2000); // Esperar 2 segundos antes de reintentar
+                    int tiempoEspera = 7000; // Esperar 7 segundos antes de reintentar
+                    Thread.sleep(tiempoEspera);
                 } catch (InterruptedException e) {
                     e.printStackTrace();
                 }

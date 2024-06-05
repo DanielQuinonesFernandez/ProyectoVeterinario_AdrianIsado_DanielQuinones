@@ -9,6 +9,7 @@ import android.content.pm.PackageManager;
 import android.graphics.Bitmap;
 import android.os.Bundle;
 import android.provider.MediaStore;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -16,6 +17,7 @@ import android.widget.Button;
 import android.widget.DatePicker;
 import android.widget.EditText;
 import android.widget.ImageView;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.annotation.NonNull;
@@ -61,8 +63,10 @@ public class RegistrarMascotaFragment extends Fragment {
         ImageView btnFechaNacimiento = root.findViewById(R.id.btnFechaNacimiento);
         imageView = root.findViewById(R.id.imageView);
         btnCargarImagen = root.findViewById(R.id.btnCargarImagen);
-        Button btnRegistrarMascota = root.findViewById(R.id.btnRegistrarMascota);
-        Button btnLimpiarCampos = root.findViewById(R.id.limpiarCamposRegMascota);
+        TextView btnRegistrarMascota = root.findViewById(R.id.btnRegistrarMascota);
+        TextView btnLimpiarCampos = root.findViewById(R.id.limpiarCamposRegMascota);
+
+        //Toast.makeText(requireContext(), UsuarioCompartido.getUsuario().getNombre() + " " + UsuarioCompartido.getUsuario().getApellidos(), Toast.LENGTH_SHORT).show();
 
         btnRegistrarMascota.setOnClickListener(v -> {
             if(!hayCamposVacios()){
@@ -140,7 +144,7 @@ public class RegistrarMascotaFragment extends Fragment {
                     statement.setString(2, especie);
                     statement.setDate(3, fechaNacimiento);
                     statement.setBytes(4, imagenBytes);
-                    statement.setString(5, String.valueOf(UsuarioCompartido.getUsuario().getId()));
+                    statement.setInt(5, UsuarioCompartido.getUsuario().getId());
 
                     // Ejecutar la consulta
                     int filasInsertadas = statement.executeUpdate();
@@ -156,7 +160,9 @@ public class RegistrarMascotaFragment extends Fragment {
                     // Cerrar la conexión
                     connection.close();
                 }
-            } catch (SQLException ignored) {
+            } catch (SQLException e) {
+                Toast.makeText(getContext(), e.getMessage(), Toast.LENGTH_SHORT).show();
+                Log.d("RegistrarMascotaFragment", e.getMessage());
             }
         } catch (ParseException ignored) {}
     }

@@ -4,6 +4,7 @@ import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 import android.widget.Button;
+import android.widget.TextView;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -20,8 +21,8 @@ public class IniciarSesion_Registrarse_Activity extends AppCompatActivity {
 
         context = this;
 
-        Button btnRegistrarse = findViewById(R.id.btnRegistrarse);
-        Button btnIniciarSesion = findViewById(R.id.btnIniciarSesion);
+        TextView btnRegistrarse = findViewById(R.id.btnRegistrarse);
+        TextView btnIniciarSesion = findViewById(R.id.btnIniciarSesion);
 
         // Para cuando se presione el boton de Registrarse, nos llevara a la pantalla de Registrarse
         btnRegistrarse.setOnClickListener(v -> {

@@ -12,9 +12,9 @@ public class Mascota {
     private final String especie;
     private final Date fechaNacimiento;
     private final Bitmap fotoMascota;
-    private final String idUsuario;
+    private final int idUsuario;
 
-    public Mascota(int id, String nombre, String especie, Date fechaNacimiento, Bitmap fotoMascota, String idUsuario) {
+    public Mascota(int id, String nombre, String especie, Date fechaNacimiento, Bitmap fotoMascota, int idUsuario) {
         this.id = id;
         this.nombre = nombre;
         this.especie = especie;
@@ -48,7 +48,7 @@ public class Mascota {
     }
 
 
-    public String getIdUsuario() {
+    public int getIdUsuario() {
         return idUsuario;
     }
 

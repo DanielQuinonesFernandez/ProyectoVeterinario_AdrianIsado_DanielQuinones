@@ -7,6 +7,7 @@ import android.os.Handler;
 import android.telephony.SmsManager;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.activity.EdgeToEdge;
@@ -30,7 +31,7 @@ import java.sql.SQLException;
 
 public class ContrasenaOlvidadaActivity extends AppCompatActivity {
 
-    private Button btnEnviarSMS;
+    private TextView btnEnviarSMS;
     private EditText etNumeroTelefono;
     private String nuevaContrasena = "";
 

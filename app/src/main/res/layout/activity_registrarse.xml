@@ -220,35 +220,37 @@
             <!-- ||||||||||||||||||||||||||||||||||||||||||||||||||| -->
 
 
-            <Button
+            <TextView
                 android:id="@+id/btnRegistrarse"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="@string/registrarse"
+                android:layout_gravity="center"
                 android:gravity="center"
-                android:backgroundTint="@color/white"
+                android:layout_marginBottom="10dp"
+                android:background="@drawable/btn_azul_cielo"
+                android:fontFamily="@font/poppins_bold"
+                android:text="@string/registrarse"
                 android:textColor="@color/black"
+                android:textSize="18sp"
                 android:textStyle="bold"
-                android:textSize="20sp"
-                android:background="@drawable/btn_border"
-                android:fontFamily="@font/poppins_bold"/>
+                android:padding="10dp"
+                android:textAllCaps="true"/>
 
-            <com.google.android.material.button.MaterialButton
+            <TextView
                 android:id="@+id/btnLimpiarCampos"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
+                android:gravity="center"
                 android:layout_marginBottom="10dp"
+                android:background="@drawable/btn_azul_grisaceo"
+                android:fontFamily="@font/poppins_bold"
                 android:text="@string/limpiar_campos"
-                android:textColor="@color/white"
-                android:textSize="18sp"
+                android:textColor="@color/black"
+                android:textSize="15sp"
                 android:textStyle="bold"
-                app:cornerRadius="10dp"
-                app:strokeColor="@color/black"
-                app:strokeWidth="0dp"
-                android:backgroundTint="#E41515"
-                android:padding="9dp"
-                android:fontFamily="@font/poppins_bold"/>
+                android:padding="10dp"
+                android:textAllCaps="true"/>
 
         </LinearLayout>
 

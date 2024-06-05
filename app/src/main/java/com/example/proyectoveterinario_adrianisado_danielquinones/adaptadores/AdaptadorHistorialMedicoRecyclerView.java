@@ -10,16 +10,16 @@ import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.proyectoveterinario_adrianisado_danielquinones.R;
-import com.example.proyectoveterinario_adrianisado_danielquinones.objetos.HistorialMedico;
+import com.example.proyectoveterinario_adrianisado_danielquinones.objetos.Cita;
 
 import java.util.ArrayList;
 
 public class AdaptadorHistorialMedicoRecyclerView extends RecyclerView.Adapter<AdaptadorHistorialMedicoRecyclerView.ViewHolder> {
 
     private final Context context;
-    private final ArrayList<HistorialMedico> historialesMedicos;
+    private final ArrayList<Cita> historialesMedicos;
 
-    public AdaptadorHistorialMedicoRecyclerView(Context context, ArrayList<HistorialMedico> historialesMedicos) {
+    public AdaptadorHistorialMedicoRecyclerView(Context context, ArrayList<Cita> historialesMedicos) {
         this.context = context;
         this.historialesMedicos = historialesMedicos;
     }
@@ -35,7 +35,7 @@ public class AdaptadorHistorialMedicoRecyclerView extends RecyclerView.Adapter<A
     // Método que establece los datos en cada elemento de la lista.
     @Override
     public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
-        HistorialMedico historialMedico = historialesMedicos.get(position);
+        Cita historialMedico = historialesMedicos.get(position);
 
         holder.tvFechaCita.setText(historialMedico.getFechaCita());
         String[] partesTitulo = historialMedico.getTituloCita().split("-");

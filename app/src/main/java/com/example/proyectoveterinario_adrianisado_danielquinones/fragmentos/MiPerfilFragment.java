@@ -48,7 +48,7 @@ public class MiPerfilFragment extends Fragment {
         TextView tvNombreYApellidos = root.findViewById(R.id.tvNombreYApellidos);
         TextView tvCorreo = root.findViewById(R.id.tvEmail);
         ListView lvMascotas = root.findViewById(R.id.listViewMascotasUsuario);
-        Button btnCambiarContrasena = root.findViewById(R.id.btnCambiarPasswd);
+        TextView btnCambiarContrasena = root.findViewById(R.id.btnCambiarPasswd);
         etContrasenaActual = root.findViewById(R.id.edPasswdActual);
         etContrasenaNueva = root.findViewById(R.id.edPasswdNueva);
 
@@ -85,7 +85,7 @@ public class MiPerfilFragment extends Fragment {
                 Date fechaNacimiento = resultSet.getDate("FechaNacimiento");
                 byte[] imagenBytes = resultSet.getBytes("Imagen");
                 Bitmap imagenMascota = BitmapFactory.decodeByteArray(imagenBytes, 0, imagenBytes.length);
-                String idUsuario = resultSet.getString("IdUsuario");
+                int idUsuario = resultSet.getInt("IdUsuario");
 
                 mascotas.add(new Mascota(idMascota, nombreMascota, especie, fechaNacimiento, imagenMascota, idUsuario));
             }

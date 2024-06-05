@@ -17,7 +17,7 @@ import com.example.proyectoveterinario_adrianisado_danielquinones.R;
 import com.example.proyectoveterinario_adrianisado_danielquinones.UsuarioCompartido;
 import com.example.proyectoveterinario_adrianisado_danielquinones.adaptadores.AdaptadorHistorialMedicoRecyclerView;
 import com.example.proyectoveterinario_adrianisado_danielquinones.databinding.FragmentHistorialMascotaBinding;
-import com.example.proyectoveterinario_adrianisado_danielquinones.objetos.HistorialMedico;
+import com.example.proyectoveterinario_adrianisado_danielquinones.objetos.Cita;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
@@ -31,7 +31,7 @@ import jp.wasabeef.recyclerview.animators.FadeInAnimator;
 public class HistorialMascotaFragment extends Fragment {
 
     private FragmentHistorialMascotaBinding binding;
-    private final ArrayList<HistorialMedico> historialesMedicos = new ArrayList<>();
+    private final ArrayList<Cita> historialesMedicos = new ArrayList<>();
 
     public View onCreateView(@NonNull LayoutInflater inflater,
                              ViewGroup container, Bundle savedInstanceState) {
@@ -70,11 +70,10 @@ public class HistorialMascotaFragment extends Fragment {
             String sql = "SELECT Citas.* " +
                     "FROM Citas, Mascotas " +
                     "WHERE Citas.IdMascota = Mascotas.IdMascota " +
-                    "AND (Mascotas.IdUsuario = ? OR Mascotas.IdUsuario = ?);";
+                    "AND Mascotas.IdUsuario = ?;";
 
             PreparedStatement statement = connection.prepareStatement(sql);
-            statement.setString(1, "DEL" + UsuarioCompartido.getUsuario().getId());
-            statement.setInt(2, UsuarioCompartido.getUsuario().getId());
+            statement.setInt(1, UsuarioCompartido.getUsuario().getId());
 
             ResultSet resultSet = statement.executeQuery();
             while (resultSet.next()) {
@@ -87,7 +86,7 @@ public class HistorialMascotaFragment extends Fragment {
                     double importeHistorial = obtenerImporteCita(tituloCita);
                     int idMascota = resultSet.getInt("IdMascota");
 
-                    historialesMedicos.add(new HistorialMedico(idCita, fechaCita, descripcionCita, importeHistorial, tituloCita, idMascota));
+                    historialesMedicos.add(new Cita(idCita, fechaCita, descripcionCita, importeHistorial, tituloCita, idMascota));
                 } else {
                     int idCita = resultSet.getInt("IdCita");
                     String tituloCita = resultSet.getString("TipoCita");
@@ -96,7 +95,7 @@ public class HistorialMascotaFragment extends Fragment {
                     double importeHistorial = 0.0;
                     int idMascota = resultSet.getInt("IdMascota");
 
-                    historialesMedicos.add(new HistorialMedico(idCita, fechaCita, descripcionCita, importeHistorial, tituloCita, idMascota));
+                    historialesMedicos.add(new Cita(idCita, fechaCita, descripcionCita, importeHistorial, tituloCita, idMascota));
                 }
             }
 

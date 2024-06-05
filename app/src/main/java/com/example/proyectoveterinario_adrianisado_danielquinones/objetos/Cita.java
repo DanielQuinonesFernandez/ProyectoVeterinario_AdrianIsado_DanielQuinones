@@ -2,7 +2,7 @@ package com.example.proyectoveterinario_adrianisado_danielquinones.objetos;
 
 import androidx.annotation.NonNull;
 
-public class HistorialMedico {
+public class Cita {
     private final int id;
     private final String fechaCita;
     private final String descripcionCita;
@@ -10,7 +10,7 @@ public class HistorialMedico {
     private final String tituloCita;
     private final int idMascota;
 
-    public HistorialMedico(int id, String fechaCita, String descripcionCita, double precioCita, String tituloCita, int idMascota) {
+    public Cita(int id, String fechaCita, String descripcionCita, double precioCita, String tituloCita, int idMascota) {
         this.id = id;
         this.fechaCita = fechaCita;
         this.descripcionCita = descripcionCita;

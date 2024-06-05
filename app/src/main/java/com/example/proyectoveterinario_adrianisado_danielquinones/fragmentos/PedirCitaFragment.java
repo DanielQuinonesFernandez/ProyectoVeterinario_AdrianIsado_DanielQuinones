@@ -20,6 +20,7 @@ import android.widget.ImageButton;
 import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.TimePicker;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
@@ -39,6 +40,7 @@ import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.Date;
+import java.util.Objects;
 
 public class PedirCitaFragment extends Fragment {
 
@@ -58,6 +60,14 @@ public class PedirCitaFragment extends Fragment {
         tvFechaHoraSeleccionada = root.findViewById(R.id.tvFechaSeleccionada);
 
         ImageButton btnFechaCita = root.findViewById(R.id.btnFechaCita);
+        TextView btnLimpiarCampos = root.findViewById(R.id.btnLimpiarCampos);
+
+        btnLimpiarCampos.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                limpiarCampos();
+            }
+        });
 
         timePicker = root.findViewById(R.id.timePickerPedirCita);
 
@@ -89,7 +99,7 @@ public class PedirCitaFragment extends Fragment {
 
         btnFechaCita.setOnClickListener(v -> mostrarCalendario());
 
-        Button btnPedirCita = root.findViewById(R.id.btnPedirCita);
+        TextView btnPedirCita = root.findViewById(R.id.btnPedirCita);
 
         btnPedirCita.setOnClickListener(v -> pedirCita());
 
@@ -166,7 +176,7 @@ public class PedirCitaFragment extends Fragment {
                 Date fechaNacimiento = resultSet.getDate("FechaNacimiento");
                 byte[] imagenBytes = resultSet.getBytes("Imagen");
                 Bitmap imagenMascota = BitmapFactory.decodeByteArray(imagenBytes, 0, imagenBytes.length);
-                String idUsuario = resultSet.getString("IdUsuario");
+                int idUsuario = resultSet.getInt("IdUsuario");
 
                 mascotasDeEsteUsuario.add(new Mascota(idMascota, nombreMascota, especie, fechaNacimiento, imagenMascota, idUsuario));
             }
