@@ -116,20 +116,20 @@ public class MiPerfilFragment extends Fragment {
 
             if (Objects.equals(passwdActualHasheada, usuario.getContrasenia())) {
                 if(usuario.getContrasenia().equals(passwdNuevaHasheada)) {
-                    Toast.makeText(getContext(), "La nueva contraseña no puede ser igual que la actual", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(getContext(), getString(R.string.la_nueva_contrasen_a_no_puede_ser_igual_que_la_actual), Toast.LENGTH_SHORT).show();
                 } else {
                     int filasActualizadas = statement.executeUpdate();
 
                     if (filasActualizadas > 0) {
                         UsuarioCompartido.getUsuario().setContrasenia(passwdNuevaHasheada);
-                        Toast.makeText(getContext(), "Contraseña cambiada", Toast.LENGTH_SHORT).show();
+                        Toast.makeText(getContext(), getString(R.string.contrasen_a_cambiada), Toast.LENGTH_SHORT).show();
                     } else {
-                        Toast.makeText(getContext(), "No se ha podido cambiar la contraseña", Toast.LENGTH_SHORT).show();
+                        Toast.makeText(getContext(), getString(R.string.no_se_ha_podido_cambiar_la_contrasen_a), Toast.LENGTH_SHORT).show();
                     }
                 }
                 limpiarCampos();
             } else {
-                Toast.makeText(getContext(), "La contraseña actual no coincide", Toast.LENGTH_SHORT).show();
+                Toast.makeText(getContext(), getString(R.string.la_contrasen_a_actual_no_coincide), Toast.LENGTH_SHORT).show();
             }
 
             connection.close();

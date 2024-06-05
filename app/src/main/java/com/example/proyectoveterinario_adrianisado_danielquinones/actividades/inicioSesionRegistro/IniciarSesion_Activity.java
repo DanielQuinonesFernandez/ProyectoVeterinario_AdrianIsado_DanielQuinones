@@ -57,7 +57,7 @@ public class IniciarSesion_Activity extends AppCompatActivity {
             if (!hayCamposVacios()) {
                 iniciarSesion();
             } else {
-                Toast.makeText(context, "No puedes dejar campos vacíos", Toast.LENGTH_SHORT).show();
+                Toast.makeText(context, getString(R.string.no_puedes_dejar_campos_vacios), Toast.LENGTH_SHORT).show();
             }
         });
 
@@ -75,7 +75,7 @@ public class IniciarSesion_Activity extends AppCompatActivity {
             connection = MySQLConnection.getConnection();
             if (connection == null) {
                 // Mostrar mensaje de error al usuario y esperar antes de volver a intentar
-                Toast.makeText(context, "Intentando conectar con la base de datos...", Toast.LENGTH_SHORT).show();
+                Toast.makeText(context, getString(R.string.intentando_conectar_con_la_base_de_datos), Toast.LENGTH_SHORT).show();
                 try {
                     int tiempoEspera = 7000; // Esperar 7 segundos antes de reintentar
                     Thread.sleep(tiempoEspera);
@@ -134,7 +134,7 @@ public class IniciarSesion_Activity extends AppCompatActivity {
             } else {
                 // El usuario no existe en la base de datos o las credenciales son incorrectas
                 // Puedes mostrar un mensaje de error al usuario
-                Toast.makeText(context, "Correo electrónico o contraseña incorrectos", Toast.LENGTH_SHORT).show();
+                Toast.makeText(context, getString(R.string.correo_electronico_o_contrasena_incorrectos), Toast.LENGTH_SHORT).show();
             }
 
             resultSet.close();
@@ -142,17 +142,17 @@ public class IniciarSesion_Activity extends AppCompatActivity {
 
         } catch (SQLException ignored) {
             // Manejar la excepción adecuadamente
-            Toast.makeText(context, "Error al realizar la consulta en la base de datos", Toast.LENGTH_SHORT).show();
+            Toast.makeText(context, getString(R.string.error_al_realizar_la_consulta_en_la_base_de_datos), Toast.LENGTH_SHORT).show();
         }
     }
 
     private void mostrarDialogVeto(String razonVeto){
         AlertDialog.Builder builder = new AlertDialog.Builder(context);
-        builder.setTitle("Este usuario está vetado de la APP");
-        builder.setMessage("Tu usuario está vetado en nuestra aplicación.\n\nPuedes contactar con el administrador de la aplicación para obtener ayuda.\n\nRazón: " + razonVeto);
+        builder.setTitle(R.string.este_usuario_esta_vetado_de_la_app);
+        builder.setMessage(getString(R.string.msg_veto_usuario_info) + razonVeto);
         builder.setIcon(R.drawable.baseline_do_not_disturb_alt_24);
 
-        builder.setPositiveButton("Volver", (dialog, which) -> volverALoginRegister());
+        builder.setPositiveButton(R.string.volver, (dialog, which) -> volverALoginRegister());
 
         builder.show();
     }

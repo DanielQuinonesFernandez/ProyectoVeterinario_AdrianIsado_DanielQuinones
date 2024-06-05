@@ -49,47 +49,47 @@ public class FAQFragment extends Fragment {
         listDataChild = new HashMap<>();
 
         // Adding header data (Preguntas)
-        listDataHeader.add("¿Cómo puedo reservar una cita para mi mascota?");
-        listDataHeader.add("¿Puedo mantener un registro de la salud de mis mascotas?");
-        listDataHeader.add("¿Qué servicios veterinarios están disponibles en la aplicación?");
-        listDataHeader.add("¿Cómo puedo acceder al historial de visitas veterinarias?");
-        listDataHeader.add("¿La aplicación envía recordatorios para las citas?");
-        listDataHeader.add("¿Puedo contactar a mi veterinario a través de la aplicación?");
-        listDataHeader.add("¿Cómo actualizo la información de mi mascota?");
-        listDataHeader.add("¿La aplicación es compatible con múltiples mascotas?");
-        listDataHeader.add("¿Qué debo hacer si olvido mi contraseña?");
-        listDataHeader.add("¿Cómo aseguran la privacidad de la información de mi mascota?");
+        listDataHeader.add(getString(R.string.c_mo_puedo_reservar_una_cita_para_mi_mascota));
+        listDataHeader.add(getString(R.string.puedo_mantener_un_registro_de_la_salud_de_mis_mascotas));
+        listDataHeader.add(getString(R.string.qu_servicios_veterinarios_est_n_disponibles_en_la_aplicaci_n));
+        listDataHeader.add(getString(R.string.c_mo_puedo_acceder_al_historial_de_visitas_veterinarias));
+        listDataHeader.add(getString(R.string.la_aplicaci_n_env_a_recordatorios_para_las_citas));
+        listDataHeader.add(getString(R.string.puedo_contactar_a_mi_veterinario_a_trav_s_de_la_aplicaci_n));
+        listDataHeader.add(getString(R.string.c_mo_actualizo_la_informaci_n_de_mi_mascota));
+        listDataHeader.add(getString(R.string.la_aplicaci_n_es_compatible_con_m_ltiples_mascotas));
+        listDataHeader.add(getString(R.string.qu_debo_hacer_si_olvido_mi_contrase_a));
+        listDataHeader.add(getString(R.string.c_mo_aseguran_la_privacidad_de_la_informaci_n_de_mi_mascota));
 
         // Adding child data (Respuestas)
         List<String> answer1 = new ArrayList<>();
-        answer1.add("Para reservar una cita para su mascota, simplemente navegue a la sección de citas, seleccione el tipo de servicio que necesita y elija una fecha y hora disponibles.");
+        answer1.add(getString(R.string.para_reservar_una_cita_para_su_mascota_simplemente_navegue_a_la_secci_n_de_citas_seleccione_el_tipo_de_servicio_que_necesita_y_elija_una_fecha_y_hora_disponibles));
 
         List<String> answer2 = new ArrayList<>();
-        answer2.add("Sí, puede mantener un registro detallado de la salud de sus mascotas, incluyendo vacunas, tratamientos y notas del veterinario.");
+        answer2.add(getString(R.string.s_puede_mantener_un_registro_detallado_de_la_salud_de_sus_mascotas_incluyendo_vacunas_tratamientos_y_notas_del_veterinario));
 
         List<String> answer3 = new ArrayList<>();
-        answer3.add("La aplicación ofrece una variedad de servicios, incluyendo reservas de citas, historial médico, recordatorios de citas y acceso a consultas veterinarias en línea.");
+        answer3.add(getString(R.string.la_aplicaci_n_ofrece_una_variedad_de_servicios_incluyendo_reservas_de_citas_historial_m_dico_recordatorios_de_citas_y_acceso_a_consultas_veterinarias_en_l_nea));
 
         List<String> answer4 = new ArrayList<>();
-        answer4.add("Puede acceder al historial de visitas veterinarias desde el menú desplazable de la aplicación que se encuentra en las 3 rayas horizontales de arriba a la izquierda.");
+        answer4.add(getString(R.string.puede_acceder_al_historial_de_visitas_veterinarias_desde_el_men_desplazable_de_la_aplicaci_n_que_se_encuentra_en_las_3_rayas_horizontales_de_arriba_a_la_izquierda));
 
         List<String> answer5 = new ArrayList<>();
-        answer5.add("Sí, la aplicación envía recordatorios automáticos para las citas programadas para que nunca las olvide.");
+        answer5.add(getString(R.string.s_la_aplicaci_n_env_a_recordatorios_autom_ticos_para_las_citas_programadas_para_que_nunca_las_olvide));
 
         List<String> answer6 = new ArrayList<>();
-        answer6.add("No, para contactar con su verinario puede llamar al número de teléfono del veterinario o presentarse presencialmente allí");
+        answer6.add(getString(R.string.no_para_contactar_con_su_verinario_puede_llamar_al_n_mero_de_tel_fono_del_veterinario_o_presentarse_presencialmente_all));
 
         List<String> answer7 = new ArrayList<>();
-        answer7.add("Aún no existe la posibilidad de actualizar la información de su mascota desde la aplicación. ¡Asegúrate de escribir correctamente la información!");
+        answer7.add(getString(R.string.a_n_no_existe_la_posibilidad_de_actualizar_la_informaci_n_de_su_mascota_desde_la_aplicaci_n_aseg_rate_de_escribir_correctamente_la_informaci_n));
 
         List<String> answer8 = new ArrayList<>();
-        answer8.add("Sí, la aplicación es compatible con múltiples mascotas, permitiéndole gestionar la salud y las citas de cada una por separado.");
+        answer8.add(getString(R.string.s_la_aplicaci_n_es_compatible_con_m_ltiples_mascotas_permiti_ndole_gestionar_la_salud_y_las_citas_de_cada_una_por_separado));
 
         List<String> answer9 = new ArrayList<>();
-        answer9.add("Si olvida su contraseña, puede utilizar la opción 'Olvidé mi contraseña' en la pantalla de inicio de sesión para restablecerla.");
+        answer9.add(getString(R.string.si_olvida_su_contrase_a_puede_utilizar_la_opci_n_olvid_mi_contrase_a_en_la_pantalla_de_inicio_de_sesi_n_para_restablecerla));
 
         List<String> answer10 = new ArrayList<>();
-        answer10.add("La privacidad de la información de su mascota es muy importante. Utilizamos medidas de seguridad avanzadas para proteger todos los datos personales y de salud.");
+        answer10.add(getString(R.string.la_privacidad_de_la_informaci_n_de_su_mascota_es_muy_importante_utilizamos_medidas_de_seguridad_avanzadas_para_proteger_todos_los_datos_personales_y_de_salud));
 
         // Linking child data to header data
         listDataChild.put(listDataHeader.get(0), answer1);

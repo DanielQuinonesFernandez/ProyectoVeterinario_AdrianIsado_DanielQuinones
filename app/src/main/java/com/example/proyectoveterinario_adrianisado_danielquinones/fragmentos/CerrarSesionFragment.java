@@ -37,13 +37,13 @@ public class CerrarSesionFragment extends Fragment {
 
     private void mostrarDialogoConfirmacion(){
         AlertDialog.Builder builder = new AlertDialog.Builder(context);
-        builder.setTitle("Confirmación");
-        builder.setMessage("¿Estás seguro de que quieres cerrar la sesión de tu usuario?");
+        builder.setTitle(R.string.confirmaci_n);
+        builder.setMessage(R.string.est_s_seguro_de_que_quieres_cerrar_la_sesi_n_de_tu_usuario);
         builder.setIcon(R.drawable.baseline_info_outline_24);
 
-        builder.setPositiveButton("Sí", (dialogInterface, i) -> cerrarSesion());
+        builder.setPositiveButton(getString(R.string.si), (dialogInterface, i) -> cerrarSesion());
 
-        builder.setNegativeButton("No", (dialogInterface, i) -> noCierraSesion());
+        builder.setNegativeButton(getString(R.string.no), (dialogInterface, i) -> noCierraSesion());
 
         builder.show();
     }

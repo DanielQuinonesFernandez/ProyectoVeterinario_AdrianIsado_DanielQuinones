@@ -92,7 +92,7 @@ public class MensajesFragment extends Fragment {
             Connection connection = MySQLConnection.getConnection();
 
             String sql;
-            if ("Todos".equalsIgnoreCase(tipoSeleccionado)) {
+            if (getString(R.string.todos).equalsIgnoreCase(tipoSeleccionado)) {
                 sql = "SELECT * FROM Mensajes WHERE IdUsuario = ?";
             } else {
                 sql = "SELECT * FROM Mensajes WHERE IdUsuario = ? AND TipoMensaje = ?";
@@ -128,7 +128,7 @@ public class MensajesFragment extends Fragment {
 
     private void recogerOpcionesFiltro(){
         opcionesFiltro.clear();
-        opcionesFiltro.add("Todos");
+        opcionesFiltro.add(getString(R.string.todos));
         for(int i = 0; i < mensajes.size(); i++){
             if(!opcionesFiltro.contains(mensajes.get(i).getTipoMensaje())){
                 opcionesFiltro.add(mensajes.get(i).getTipoMensaje());

@@ -61,7 +61,7 @@ public class ContrasenaOlvidadaActivity extends AppCompatActivity {
                 if (numTelefonoExisteEnBBDD(numeroTelefono)) {
                     sendSMS(numeroTelefono);
                 } else {
-                    Toast.makeText(this, "El número de telefono no existe", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(this, getString(R.string.numero_telefono_no_existe), Toast.LENGTH_SHORT).show();
                 }
             } else {
                 ActivityCompat.requestPermissions(this, new String[]{Manifest.permission.SEND_SMS}, 100);
@@ -98,18 +98,18 @@ public class ContrasenaOlvidadaActivity extends AppCompatActivity {
         if (requestCode == 100 && grantResults.length > 0 && grantResults[0] == PackageManager.PERMISSION_GRANTED) {
             sendSMS(etNumeroTelefono.getText().toString());
         } else {
-            Toast.makeText(this, "Permiso denegado", Toast.LENGTH_SHORT).show();
+            Toast.makeText(this, getString(R.string.permiso_denegado), Toast.LENGTH_SHORT).show();
         }
     }
 
     private void sendSMS(String numeroTelefono) {
         if (!numeroTelefono.isEmpty()) {
             SmsManager smsManager = SmsManager.getDefault();
-            smsManager.sendTextMessage(numeroTelefono, null, "Tu nueva contraseña es: " + nuevaContrasena, null, null);
-            Toast.makeText(this, "SMS enviado", Toast.LENGTH_SHORT).show();
+            smsManager.sendTextMessage(numeroTelefono, null, getString(R.string.tu_nueva_passwd_es) + nuevaContrasena, null, null);
+            Toast.makeText(this, getString(R.string.sms_enviado), Toast.LENGTH_SHORT).show();
             reiniciarContrasena(numeroTelefono);
         } else {
-            Toast.makeText(this, "Ingrese un número de teléfono", Toast.LENGTH_SHORT).show();
+            Toast.makeText(this, getString(R.string.ingrese_un_numero_de_telefono), Toast.LENGTH_SHORT).show();
         }
     }
 

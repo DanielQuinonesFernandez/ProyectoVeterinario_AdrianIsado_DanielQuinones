@@ -56,20 +56,20 @@ public class Registrarse_Activity extends AppCompatActivity {
 
     private void registrarUsuario(Connection connection, String nombreUsuario, String apellidosUsuario, String correoElectronico, String contrasenia, String numTelefono) {
         if (connection == null) {
-            Toast.makeText(context, "Error al conectar con la base de datos", Toast.LENGTH_SHORT).show();
+            Toast.makeText(context, getString(R.string.error_al_conectar_con_la_base_de_datos), Toast.LENGTH_SHORT).show();
         } else {
             try {
                 if (etContrasenia.getText().toString().equals(etRepiteContrasenia.getText().toString())) {
                     if (!hayCamposVacios()) {
                         // Verificar si el correo electrónico ya existe
                         if (correoExiste(connection, correoElectronico)) {
-                            Toast.makeText(context, "El correo electrónico ya está registrado", Toast.LENGTH_SHORT).show();
+                            Toast.makeText(context, getString(R.string.el_correo_electr_nico_ya_est_registrado), Toast.LENGTH_SHORT).show();
                             return;
                         }
 
                         // Verificar si el número de teléfono ya existe
                         if (telefonoExiste(connection, numTelefono)) {
-                            Toast.makeText(context, "El número de teléfono ya está registrado", Toast.LENGTH_SHORT).show();
+                            Toast.makeText(context, getString(R.string.el_n_mero_de_tel_fono_ya_est_registrado), Toast.LENGTH_SHORT).show();
                             return;
                         }
 
@@ -93,25 +93,25 @@ public class Registrarse_Activity extends AppCompatActivity {
 
                         // Verificar si se insertaron filas
                         if (filasInsertadas > 0) {
-                            Toast.makeText(context, "Usuario " + nombreUsuario + " registrado correctamente", Toast.LENGTH_SHORT).show();
+                            Toast.makeText(context, getString(R.string.usuario) + nombreUsuario + getString(R.string.registrado_correctamente), Toast.LENGTH_SHORT).show();
                             iniciarSesion();
                             limpiarCampos();
                         } else {
-                            Toast.makeText(context, "Error al registrar usuario", Toast.LENGTH_SHORT).show();
+                            Toast.makeText(context, getString(R.string.error_al_registrar_usuario), Toast.LENGTH_SHORT).show();
                         }
 
                         // Cerrar la conexión
                         statement.close();
                     } else {
-                        Toast.makeText(context, "Rellene todos los campos", Toast.LENGTH_SHORT).show();
+                        Toast.makeText(context, getString(R.string.rellene_todos_los_campos), Toast.LENGTH_SHORT).show();
                     }
                 } else {
-                    Toast.makeText(context, "Las contraseñas no coinciden", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(context, getString(R.string.las_contrase_as_no_coinciden), Toast.LENGTH_SHORT).show();
                     etContrasenia.setText("");
                     etRepiteContrasenia.setText("");
                 }
             } catch (SQLException | NumberFormatException e) {
-                Toast.makeText(context, "Error al realizar la inserción del usuario: " + e.getMessage(), Toast.LENGTH_SHORT).show();
+                Toast.makeText(context, getString(R.string.error_al_realizar_la_inserci_n_del_usuario) + e.getMessage(), Toast.LENGTH_SHORT).show();
             }
         }
     }
@@ -159,7 +159,7 @@ public class Registrarse_Activity extends AppCompatActivity {
                     } else {
                         // El usuario no existe en la base de datos o las credenciales son incorrectas
                         // Puedes mostrar un mensaje de error al usuario
-                        Toast.makeText(context, "Correo electrónico o contraseña incorrectos", Toast.LENGTH_SHORT).show();
+                        Toast.makeText(context, getString(R.string.correo_electr_nico_o_contrase_a_incorrectos), Toast.LENGTH_SHORT).show();
                     }
 
                     resultSet.close();
@@ -169,10 +169,10 @@ public class Registrarse_Activity extends AppCompatActivity {
             } else {
                 // No se pudo establecer la conexión a la base de datos
                 // Puedes mostrar un mensaje de error al usuario
-                Toast.makeText(context, "Error al conectar con la base de datos", Toast.LENGTH_SHORT).show();
+                Toast.makeText(context, getString(R.string.error_al_conectar_con_la_base_de_datos), Toast.LENGTH_SHORT).show();
             }
         } else {
-            Toast.makeText(context, "El correo no tiene un formato válido", Toast.LENGTH_SHORT).show();
+            Toast.makeText(context, getString(R.string.el_correo_no_tiene_un_formato_v_lido), Toast.LENGTH_SHORT).show();
         }
     }
 

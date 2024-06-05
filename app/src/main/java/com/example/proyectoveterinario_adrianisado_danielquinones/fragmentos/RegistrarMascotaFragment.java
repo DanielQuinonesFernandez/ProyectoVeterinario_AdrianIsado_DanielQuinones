@@ -72,7 +72,7 @@ public class RegistrarMascotaFragment extends Fragment {
             if(!hayCamposVacios()){
                 registrarMascota();
             } else {
-                Toast.makeText(getContext(), "Por favor, rellene todos los campos", Toast.LENGTH_SHORT).show();
+                Toast.makeText(getContext(), getString(R.string.por_favor_rellene_todos_los_campos), Toast.LENGTH_SHORT).show();
             }
         });
 
@@ -127,7 +127,7 @@ public class RegistrarMascotaFragment extends Fragment {
 
             try {
                 if (nombre.isEmpty() || especie.isEmpty()) {
-                    Toast.makeText(getContext(), "Por favor, rellena todos los campos.", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(getContext(), getString(R.string.por_favor_rellena_todos_los_campos), Toast.LENGTH_SHORT).show();
                 } else {
                     // Construir la consulta INSERT INTO
                     String query = "INSERT INTO `Mascotas` (`NombreMascota`, `Especie`, `FechaNacimiento`, `Imagen`, `IdUsuario`) VALUES (?, ?, ?, ?, ?)";
@@ -151,10 +151,10 @@ public class RegistrarMascotaFragment extends Fragment {
 
                     // Verificar si se insertaron filas
                     if (filasInsertadas > 0) {
-                        Toast.makeText(getContext(), "Mascota " + nombre + " registrada correctamente a nombre de " + UsuarioCompartido.getUsuario().getNombre(), Toast.LENGTH_SHORT).show();
+                        Toast.makeText(getContext(), getString(R.string.mascota) + nombre + getString(R.string.registrada_correctamente_a_nombre_de) + UsuarioCompartido.getUsuario().getNombre(), Toast.LENGTH_SHORT).show();
                         limpiarCampos();
                     } else {
-                        Toast.makeText(getContext(), "Error al registrar mascota", Toast.LENGTH_SHORT).show();
+                        Toast.makeText(getContext(), getString(R.string.error_al_registrar_mascota), Toast.LENGTH_SHORT).show();
                     }
 
                     // Cerrar la conexión
@@ -162,7 +162,6 @@ public class RegistrarMascotaFragment extends Fragment {
                 }
             } catch (SQLException e) {
                 Toast.makeText(getContext(), e.getMessage(), Toast.LENGTH_SHORT).show();
-                Log.d("RegistrarMascotaFragment", e.getMessage());
             }
         } catch (ParseException ignored) {}
     }
@@ -239,7 +238,7 @@ public class RegistrarMascotaFragment extends Fragment {
                 btnCargarImagen.performClick();
             } else {
                 // El usuario negó el permiso, muestra un mensaje o toma otras acciones
-                Toast.makeText(requireContext(), "Permiso de cámara denegado", Toast.LENGTH_SHORT).show();
+                Toast.makeText(requireContext(), getString(R.string.permiso_de_c_mara_denegado), Toast.LENGTH_SHORT).show();
             }
         }
     }

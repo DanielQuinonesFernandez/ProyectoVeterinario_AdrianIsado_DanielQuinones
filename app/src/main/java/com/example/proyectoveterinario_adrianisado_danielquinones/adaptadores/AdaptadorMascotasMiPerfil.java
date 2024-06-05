@@ -103,10 +103,9 @@ public class AdaptadorMascotasMiPerfil extends BaseAdapter {
             mascotas.remove(mascota);
             notifyDataSetChanged();
 
-            Toast.makeText(context, mascota.getNombre() + " eliminado de tu lista", Toast.LENGTH_SHORT).show();
+            Toast.makeText(context, mascota.getNombre() + context.getString(R.string.eliminado_de_tu_lista), Toast.LENGTH_SHORT).show();
         } catch (SQLException e) {
             Toast.makeText(context, e.getMessage(), Toast.LENGTH_SHORT).show();
-            Log.println(Log.ERROR, "AdaptadorMascotasMiPerfil", Objects.requireNonNull(e.getMessage()));
         }
     }
 }

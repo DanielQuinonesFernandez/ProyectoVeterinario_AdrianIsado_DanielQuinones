@@ -115,7 +115,7 @@ public class PedirCitaFragment extends Fragment {
                 int hora = timePicker.getHour();
                 @SuppressLint("DefaultLocale") String minutoStr = String.format("%02d", timePicker.getMinute());
 
-                tvFechaHoraSeleccionada.setText("Fecha seleccionada: " + etFechaCita.getText().toString() + " " + hora + ":" + minutoStr);
+                tvFechaHoraSeleccionada.setText(getString(R.string.fecha_seleccionada) + etFechaCita.getText().toString() + " " + hora + ":" + minutoStr);
             }
 
             @Override
@@ -131,7 +131,7 @@ public class PedirCitaFragment extends Fragment {
                 int hora = timePicker.getHour();
                 @SuppressLint("DefaultLocale") String minutoStr = String.format("%02d", timePicker.getMinute());
 
-                tvFechaHoraSeleccionada.setText("Fecha seleccionada: " + etFechaCita.getText().toString() + " " + hora + ":" + minutoStr);
+                tvFechaHoraSeleccionada.setText(getString(R.string.fecha_seleccionada) + etFechaCita.getText().toString() + " " + hora + ":" + minutoStr);
             }
         });
 
