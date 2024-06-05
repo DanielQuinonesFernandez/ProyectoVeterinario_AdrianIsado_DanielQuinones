@@ -41,7 +41,7 @@ public class MainActivity extends AppCompatActivity {
 
         setSupportActionBar(binding.appBarMain.toolbar);
 
-        @SuppressLint("UseCompatLoadingForDrawables") Drawable drawable = getDrawable(R.drawable.desktop_wallpaper_blue_linear_gradient_pink_aqua_cyan_hot_pink_00ffff_ff69b4_15a_);
+        @SuppressLint("UseCompatLoadingForDrawables") Drawable drawable = getDrawable(R.drawable.fondoazulgris2);
         Objects.requireNonNull(getSupportActionBar()).setBackgroundDrawable(drawable);
 
         DrawerLayout drawer = binding.drawerLayout;
