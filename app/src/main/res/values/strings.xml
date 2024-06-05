@@ -1,0 +1,196 @@
+<resources>
+    <!-- Nombres de la aplicación -->
+    <string name="app_name">Animalia - Tu Veterinario</string>
+
+    <!-- Botones -->
+    <string name="nav_header_title" translatable="false">Animalia</string>
+    <string name="nav_header_subtitle" translatable="false">animalia@animalia.es</string>
+    <string name="btn_menu_miPerfil">Mi perfil</string>
+    <string name="btn_menu_pedirCita">Pedir cita</string>
+    <string name="btn_menu_mensajes">Mensajes</string>
+    <string name="btn_menu_registrarMascota">Registrar mascota</string>
+    <string name="btn_menu_historialMascotas">Historial de mis citas</string>
+    <string name="btn_menu_FAQ" translatable="false">FAQ</string>
+    <string name="btn_menu_cerrarSesion">Cerrar sesión</string>
+    <string name="action_settings">Ajustes</string>
+    <string name="iniciar_sesion">Iniciar Sesión</string>
+    <string name="registrarse">Registrarse</string>
+    <string name="has_olvidado_tu_contrasena">¿Has olvidado tu contraseña?</string>
+    <string name="volver">VOLVER</string>
+    <string name="ayuda">Ayuda</string>
+
+    <!-- Campos de registro -->
+    <string name="nombre">Nombre</string>
+    <string name="escribe_tu_nombre">Escribe tu nombre</string>
+    <string name="apellidos">Apellidos</string>
+    <string name="escribe_tu_apellido">Escribe tu apellido</string>
+    <string name="escribe_tu_correo">Escribe tu correo</string>
+    <string name="correo">Correo electrónico</string>
+    <string name="contrasena">Contraseña</string>
+    <string name="escribe_tu_contrasena">Escribe tu contraseña</string>
+    <string name="repite_contrasena">Repite tu contraseña</string>
+    <string name="escribe_aqui_el_tipo_de_cita">Escribe aquí el tipo de cita</string>
+    <string name="escribe_otros_datos_relevantes_sobre_la_cita">Escribe otros datos relevantes</string>
+
+    <!-- Registro de mascotas -->
+    <string name="registra_tu_mascota">REGISTRA TU MASCOTA</string>
+    <string name="especie_mascota">Especie de tu mascota</string>
+    <string name="escribe_la_especie">Escribe la especie de tu mascota</string>
+    <string name="fechaNacimiento_mascota">Fecha de nacimiento</string>
+    <string name="escribe_la_fechaNac_mascota">dd/mm/aaaa</string>
+    <string name="cargar_imagen">Subir foto de mi mascota</string>
+    <string name="registrar_mascota">Registrar mascota</string>
+    <string name="limpiar_campos">Limpiar campos</string>
+
+    <!-- Pedir cita -->
+    <string name="pide_tu_cita">Pide tu cita</string>
+    <string name="selec_tu_mascota">Selecciona tu mascota</string>
+    <string name="selec_tipo_cita">Tipo de cita</string>
+    <string name="selec_fechaHora_cita">Fecha y hora</string>
+    <string name="pedir_cita">Pedir cita</string>
+    <string name="numero_telefono">Teléfono</string>
+    <string name="escribe_tu_numTlf">Escribe tu número de teléfono</string>
+
+    <!-- Historial médico -->
+    <string name="historial_medico">Historial médico</string>
+    <string name="escribe_tu_nombre_de_mascota">Escribe el nombre de tu mascota</string>
+    <string name="otros_datos">Otros datos</string>
+
+    <!-- Cambio de contraseña -->
+    <string name="contrasena_actual">Contraseña actual:</string>
+    <string name="contrasena_nueva">Contraseña nueva:</string>
+    <string name="cambiar_contrasena">Cambiar contraseña</string>
+
+    <!-- Tipos de cita -->
+    <string-array name="tipos_de_cita">
+        <item>Consulta general - 50.00€</item>
+        <item>Vacunación - 30.00€</item>
+        <item>Esterilización/Castración - 150.00€</item>
+        <item>Control de peso - 25.00€</item>
+        <item>Chequeo dental - 40.00€</item>
+        <item>Tratamiento contra parásitos - 60.00€</item>
+        <item>Revisión de heridas o suturas - 35.00€</item>
+        <item>Exámenes de laboratorio - 55.00€</item>
+        <item>Cirugía - 150.00€</item>
+        <item>Emergencia - 80.00€</item>
+        <item>Chequeo anual - 40.00€</item>
+        <item>Consejería nutricional - 70.00€</item>
+        <item>Control de enfermedades crónicas - 60.00€</item>
+        <item>Consulta especializada - 75.00€</item>
+        <item>Desparasitación - 25.00€</item>
+        <item>Vacunación de cachorros - 35.00€</item>
+        <item>Tratamiento de enfermedades - 45.00€</item>
+        <item>Revisión de comportamiento - 50.00€</item>
+        <item>Control de medicación - 30.00€</item>
+        <item>Curas o vendajes - 20.00€</item>
+        <item>Consultas para animales exóticos - 100.00€</item>
+        <item>Consejería sobre cuidados - 60.00€</item>
+        <item>Otros - Por favor, consulte con el veterinario</item>
+    </string-array>
+
+    <!-- Ayuda para pedir cita -->
+    <string name="como_pedir_una_cita">Como pedir una cita</string>
+    <string name="help_selec_mascota_pedirCita">Pedir una cita es muy sencillo. Primero tendrás que elegir una de tus mascotas registradas:</string>
+    <string name="help_select_tipo_cita_pedirCita">Después de haber seleccionado tu mascota, tendrás que seleccionar el tipo de cita que quieres elegir. A la derecha de cada cita encontrarás el precio de la misma:</string>
+    <string name="help_otra_cita_pedirCita">Si ningún tipo de cita se corresponde con lo que querías, podrás elegir la última elección y escribirle al veterinario lo que quieres específicamente:</string>
+    <string name="help_selec_fecha_hora_pedirCita">Cuando tengas tu cita seleccionada podrás elegir una fecha y hora para la misma:</string>
+    <string name="help_otros_datos_pedirCita">Lo básico ya está seleccionado, ahora puedes añadir datos adicionales para el veterinario:</string>
+    <string name="ahora_solo_queda_pedir_la_cita">¡Ahora solo queda pedir la cita!</string>
+
+    <!-- Ayuda para "Mi Perfil" -->
+    <string name="que_ves_en_miPerfil">Qué se ve en \"Mi Perfil\"</string>
+    <string name="help_nombre_mascotas_miPerfil">Lo primero que ves en tu sección de \"Mi Perfil\" son tus datos así como tu nombre, apellidos y tu correo además de las mascotas que has registrado:</string>
+    <string name="help_eliminar_mascotas_miPerfil">Para eliminar una mascota que tengas registrada solo tienes que darle al icono de la papelera:</string>
+    <string name="help_cambiar_contrasena_miPerfil">Y lo último que puedes ver en esta sección es la opción de poder cambiar tu contraseña:</string>
+    <string name="help_como_cambiar_contrasena_miPerfil">Deberás escribir en el primer campo tu contraseña actual y en el campo de abajo la contraseña nueva que quieres que tenga tu usuario.</string>
+
+    <!-- Ayuda en la seccion de mensajes -->
+    <string name="help_titulo_mensajes">Sección de mensajes</string>
+    <string name="help_mensajes_mensajes">Esta sección es muy sencilla, lo único que verás aquí son los mensajes de tu usuario:</string>
+    <string name="help_icono_arriba_mensajes">Si le das al icono del sobre que se encuentra en la parte de arriba podrás ver tus mensajes:</string>
+    <string name="help_icono_barra_lateral_mensajes">Y si abres la barra lateral y le das a la sección de \"Mensajes\" también llegarás hasta aquí:</string>
+    <string name="help_borrar_mensaje_mensajes">Si quieres borrar un mensaje solo tienes que darle al icono de la papelera y ya no aparecerá en tu lista de mensajes:</string>
+    <string name="help_porque_llegan_mensajes_mensajes">Los mensajes te pueden llegar porque ha habido un cambio de estado, de fecha, de hora, etc en tu cita o cambios en tu usuario.</string>
+
+    <!-- Ayuda para registrar una mascota -->
+    <string name="help_como_registrar_mascota_registrarMascota">Como registrar una mascota</string>
+    <string name="help_info_basica_registrarMascota">Lo primero que tendrás que ingresar es el nombre, la especie y la fecha de nacimiento de tu mascota.</string>
+    <string name="help_icono_calendario_registrarMascota">Si le das al icono del calendario se abrirá un calendario para que selecciones la fecha de nacimiento. No podrás escribir directamente la fecha en el campo de texto.</string>
+    <string name="help_boton_foto_mascota_registrarMascota">El último paso antes de realizar el registro es subir una foto de tu mascota, para eso solo tienes que seleccionar en el botón como el que sale en la imagen:</string>
+    <string name="help_miniatura_foto_registrarMascota">Y podrás ver la foto que has subido porque habrá una pequeña miniatura de la foto debajo del botón:</string>
+    <string name="help_dialog_miniatura_registrarMascota">Además si le das click a la miniatura podrás ver la foto ampliada. Saldrá un dialogo como el siguiente:</string>
+
+    <!-- Otros -->
+    <string name="filtrar_por">Filtrar por:</string>
+    <string name="todo" translatable="false">TODO</string>
+    <string name="mascotas">Sobre mis mascotas</string>
+    <string name="sobre_mi">Sobre mí</string>
+    <string name="mascotas_dosPuntos">Mascotas:</string>
+    <string name="fecha_por_defecto" translatable="false">01-01-1900</string>
+    <string name="escribe_tu_numero_para_nueva_passwd_sms">Escribe tu número de teléfono para recibir tu nueva contraseña por SMS:</string>
+    <string name="enviar_sms">Enviar SMS</string>
+    <string name="escribe_el_numero_sin_prefijo">¡Escribe el número sin prefijo!</string>
+    <string name="preguntas_frecuentes">Preguntas frecuentes</string>
+
+    <!-- TOASTs -->
+    <string name="numero_telefono_no_existe">El número de telefono no existe</string>
+    <string name="permiso_denegado">Permiso denegado</string>
+    <string name="tu_nueva_passwd_es">Tu nueva contraseña es: </string>
+    <string name="sms_enviado">SMS enviado</string>
+    <string name="ingrese_un_numero_de_telefono">Ingrese un número de teléfono</string>
+    <string name="no_puedes_dejar_campos_vacios">No puedes dejar campos vacíos</string>
+    <string name="intentando_conectar_con_la_base_de_datos">Intentando conectar con la base de datos…</string>
+    <string name="correo_electronico_o_contrasena_incorrectos">Correo electrónico o contraseña incorrectos</string>
+    <string name="error_al_realizar_la_consulta_en_la_base_de_datos">Error al realizar la consulta en la base de datos</string>
+    <string name="este_usuario_esta_vetado_de_la_app">Este usuario está vetado de la APP</string>
+    <string name="msg_veto_usuario_info">Tu usuario está vetado en nuestra aplicación.\n\nPuedes contactar con el administrador de la aplicación para obtener ayuda.\n\nRazón: </string>
+    <string name="error_al_conectar_con_la_base_de_datos">Error al conectar con la base de datos</string>
+    <string name="el_correo_electr_nico_ya_est_registrado">El correo electrónico ya está registrado</string>
+    <string name="el_n_mero_de_tel_fono_ya_est_registrado">El número de teléfono ya está registrado</string>
+    <string name="usuario">Usuario </string>
+    <string name="registrado_correctamente">" registrado correctamente"</string>
+    <string name="error_al_registrar_usuario">Error al registrar usuario</string>
+    <string name="rellene_todos_los_campos">Rellene todos los campos</string>
+    <string name="las_contrase_as_no_coinciden">Las contraseñas no coinciden</string>
+    <string name="error_al_realizar_la_inserci_n_del_usuario">Error al realizar la inserción del usuario: </string>
+    <string name="correo_electr_nico_o_contrase_a_incorrectos">Correo electrónico o contraseña incorrectos</string>
+    <string name="el_correo_no_tiene_un_formato_v_lido">El correo no tiene un formato válido</string>
+    <string name="eliminado_de_tu_lista">" eliminado de tu lista"</string>
+    <string name="confirmaci_n">Confirmación</string>
+    <string name="est_s_seguro_de_que_quieres_cerrar_la_sesi_n_de_tu_usuario">¿Estás seguro de que quieres cerrar la sesión de tu usuario?</string>
+    <string name="si">Si</string>
+    <string name="no">No</string>
+    <string name="c_mo_puedo_reservar_una_cita_para_mi_mascota">¿Cómo puedo reservar una cita para mi mascota?</string>
+    <string name="puedo_mantener_un_registro_de_la_salud_de_mis_mascotas">¿Puedo mantener un registro de la salud de mis mascotas?</string>
+    <string name="qu_servicios_veterinarios_est_n_disponibles_en_la_aplicaci_n">¿Qué servicios veterinarios están disponibles en la aplicación?</string>
+    <string name="c_mo_puedo_acceder_al_historial_de_visitas_veterinarias">¿Cómo puedo acceder al historial de visitas veterinarias?</string>
+    <string name="la_aplicaci_n_env_a_recordatorios_para_las_citas">¿La aplicación envía recordatorios para las citas?</string>
+    <string name="puedo_contactar_a_mi_veterinario_a_trav_s_de_la_aplicaci_n">¿Puedo contactar a mi veterinario a través de la aplicación?</string>
+    <string name="c_mo_actualizo_la_informaci_n_de_mi_mascota">¿Cómo actualizo la información de mi mascota?</string>
+    <string name="la_aplicaci_n_es_compatible_con_m_ltiples_mascotas">¿La aplicación es compatible con múltiples mascotas?</string>
+    <string name="qu_debo_hacer_si_olvido_mi_contrase_a">¿Qué debo hacer si olvido mi contraseña?</string>
+    <string name="c_mo_aseguran_la_privacidad_de_la_informaci_n_de_mi_mascota">¿Cómo aseguran la privacidad de la información de mi mascota?</string>
+    <string name="para_reservar_una_cita_para_su_mascota_simplemente_navegue_a_la_secci_n_de_citas_seleccione_el_tipo_de_servicio_que_necesita_y_elija_una_fecha_y_hora_disponibles">Para reservar una cita para su mascota, simplemente navegue a la sección de citas, seleccione el tipo de servicio que necesita y elija una fecha y hora disponibles.</string>
+    <string name="s_puede_mantener_un_registro_detallado_de_la_salud_de_sus_mascotas_incluyendo_vacunas_tratamientos_y_notas_del_veterinario">Sí, puede mantener un registro detallado de la salud de sus mascotas, incluyendo vacunas, tratamientos y notas del veterinario.</string>
+    <string name="la_aplicaci_n_ofrece_una_variedad_de_servicios_incluyendo_reservas_de_citas_historial_m_dico_recordatorios_de_citas_y_acceso_a_consultas_veterinarias_en_l_nea">La aplicación ofrece una variedad de servicios, incluyendo reservas de citas, historial médico, recordatorios de citas y acceso a consultas veterinarias en línea.</string>
+    <string name="puede_acceder_al_historial_de_visitas_veterinarias_desde_el_men_desplazable_de_la_aplicaci_n_que_se_encuentra_en_las_3_rayas_horizontales_de_arriba_a_la_izquierda">Puede acceder al historial de visitas veterinarias desde el menú desplazable de la aplicación que se encuentra en las 3 rayas horizontales de arriba a la izquierda.</string>
+    <string name="s_la_aplicaci_n_env_a_recordatorios_autom_ticos_para_las_citas_programadas_para_que_nunca_las_olvide">Sí, la aplicación envía recordatorios automáticos para las citas programadas para que nunca las olvide.</string>
+    <string name="no_para_contactar_con_su_verinario_puede_llamar_al_n_mero_de_tel_fono_del_veterinario_o_presentarse_presencialmente_all">No, para contactar con su verinario puede llamar al número de teléfono del veterinario o presentarse presencialmente allí</string>
+    <string name="a_n_no_existe_la_posibilidad_de_actualizar_la_informaci_n_de_su_mascota_desde_la_aplicaci_n_aseg_rate_de_escribir_correctamente_la_informaci_n">Aún no existe la posibilidad de actualizar la información de su mascota desde la aplicación. ¡Asegúrate de escribir correctamente la información!</string>
+    <string name="s_la_aplicaci_n_es_compatible_con_m_ltiples_mascotas_permiti_ndole_gestionar_la_salud_y_las_citas_de_cada_una_por_separado">Sí, la aplicación es compatible con múltiples mascotas, permitiéndole gestionar la salud y las citas de cada una por separado.</string>
+    <string name="si_olvida_su_contrase_a_puede_utilizar_la_opci_n_olvid_mi_contrase_a_en_la_pantalla_de_inicio_de_sesi_n_para_restablecerla">Si olvida su contraseña, puede utilizar la opción \'Olvidé mi contraseña\' en la pantalla de inicio de sesión para restablecerla.</string>
+    <string name="la_privacidad_de_la_informaci_n_de_su_mascota_es_muy_importante_utilizamos_medidas_de_seguridad_avanzadas_para_proteger_todos_los_datos_personales_y_de_salud">La privacidad de la información de su mascota es muy importante. Utilizamos medidas de seguridad avanzadas para proteger todos los datos personales y de salud.</string>
+    <string name="todos">Todos</string>
+    <string name="la_nueva_contrasen_a_no_puede_ser_igual_que_la_actual">La nueva contraseña no puede ser igual que la actual</string>
+    <string name="contrasen_a_cambiada">Contraseña cambiada</string>
+    <string name="no_se_ha_podido_cambiar_la_contrasen_a">No se ha podido cambiar la contraseña</string>
+    <string name="la_contrasen_a_actual_no_coincide">La contraseña actual no coincide</string>
+    <string name="fecha_seleccionada">"Fecha seleccionada: "</string>
+    <string name="por_favor_rellene_todos_los_campos">Por favor, rellene todos los campos</string>
+    <string name="por_favor_rellena_todos_los_campos">Por favor, rellena todos los campos.</string>
+    <string name="mascota">Mascota </string>
+    <string name="registrada_correctamente_a_nombre_de"> registrada correctamente a nombre de </string>
+    <string name="error_al_registrar_mascota">Error al registrar mascota</string>
+    <string name="permiso_de_c_mara_denegado">Permiso de cámara denegado</string>
+
+</resources>

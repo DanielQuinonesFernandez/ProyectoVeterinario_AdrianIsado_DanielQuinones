@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/mobile_navigation"
+    app:startDestination="@+id/nav_miPerfil">
+
+    <fragment
+        android:id="@+id/nav_miPerfil"
+        android:name="com.example.proyectoveterinario_adrianisado_danielquinones.fragmentos.MiPerfilFragment"
+        android:label="@string/btn_menu_miPerfil"
+        tools:layout="@layout/fragment_mi_perfil" />
+
+    <fragment
+        android:id="@+id/nav_pedirCita"
+        android:name="com.example.proyectoveterinario_adrianisado_danielquinones.fragmentos.PedirCitaFragment"
+        android:label="@string/btn_menu_pedirCita"
+        tools:layout="@layout/fragment_pedir_cita" />
+
+    <fragment
+        android:id="@+id/nav_mensajes"
+        android:name="com.example.proyectoveterinario_adrianisado_danielquinones.fragmentos.MensajesFragment"
+        android:label="@string/btn_menu_mensajes"
+        tools:layout="@layout/fragment_mensajes" />
+
+    <fragment
+        android:id="@+id/nav_registrarMascota"
+        android:name="com.example.proyectoveterinario_adrianisado_danielquinones.fragmentos.RegistrarMascotaFragment"
+        android:label="@string/btn_menu_registrarMascota"
+        tools:layout="@layout/fragment_registrar_mascota" />
+
+    <fragment
+        android:id="@+id/nav_historialMascotas"
+        android:name="com.example.proyectoveterinario_adrianisado_danielquinones.fragmentos.HistorialMascotaFragment"
+        android:label="@string/btn_menu_historialMascotas"
+        tools:layout="@layout/fragment_historial_mascota" />
+
+    <fragment
+        android:id="@+id/nav_FAQ"
+        android:name="com.example.proyectoveterinario_adrianisado_danielquinones.fragmentos.FAQFragment"
+        android:label="@string/btn_menu_FAQ"
+        tools:layout="@layout/fragment_faq" />
+
+    <fragment
+        android:id="@+id/nav_CerrarSesion"
+        android:name="com.example.proyectoveterinario_adrianisado_danielquinones.fragmentos.CerrarSesionFragment"
+        android:label="@string/btn_menu_cerrarSesion"
+        tools:layout="@layout/fragment_cerrar_sesion" />
+
+</navigation>

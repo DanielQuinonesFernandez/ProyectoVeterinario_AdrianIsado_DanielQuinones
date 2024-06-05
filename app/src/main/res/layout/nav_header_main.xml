@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="@dimen/nav_header_height"
+    android:background="@drawable/desktop_wallpaper_blue_linear_gradient_pink_aqua_cyan_hot_pink_00ffff_ff69b4_15a_"
+    android:gravity="bottom"
+    android:orientation="vertical"
+    android:theme="@style/ThemeOverlay.AppCompat.Dark"
+    android:padding="20dp">
+
+    <ImageView
+        android:id="@+id/imageView"
+        android:layout_width="84dp"
+        android:layout_height="91dp"
+        android:src="@drawable/logovet" />
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:paddingTop="@dimen/nav_header_vertical_spacing"
+        android:text="@string/nav_header_title"
+        android:textColor="@color/black"/>
+
+    <TextView
+        android:id="@+id/textView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/nav_header_subtitle"
+        android:textColor="#302F2F"/>
+</LinearLayout>

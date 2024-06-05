@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "567900255461",
+    "project_id": "animaliaapp-vet",
+    "storage_bucket": "animaliaapp-vet.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:567900255461:android:9064577ddff86125c0500c",
+        "android_client_info": {
+          "package_name": "com.example.proyectoveterinario_adrianisado_danielquinones"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyC_LeKZNkSIkS0YytFZrLa9k8NamuplmEo"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
